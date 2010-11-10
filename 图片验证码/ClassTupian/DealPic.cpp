@@ -1,0 +1,27 @@
+// DealPic.cpp: implementation of the DealPic class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "ClassTupian.h"
+#include "DealPic.h"
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[]=__FILE__;
+#define new DEBUG_NEW
+#endif
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+DealPic::DealPic()
+{
+	
+}
+
+DealPic::~DealPic()
+{
+
+}
