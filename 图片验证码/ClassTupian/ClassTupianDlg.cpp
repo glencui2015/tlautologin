@@ -342,34 +342,34 @@ void CClassTupianDlg::OnButton3()
 		y++;
 	}
 
-	x = y = 0;
-	while (y < 36)
-	{
-		while (x < 32)
-		{
-			if (Dp.B2[y-1][x-1] && Dp.B2[y-1][x] && Dp.B2[y-1][x+1] && Dp.B2[y][x-1] &&Dp.B2[y][x] && Dp.B2[y][x+1] && 
-				Dp.B2[y+1][x-1] && Dp.B2[y+1][x] && Dp.B2[y+1][x+1])
-			{
-				Dp.TMP[y][x] = TRUE;
-			}
-			else
-			{
-				Dp.TMP[y][x] = FALSE;
-			}
-			x++;
-		}
-		x = 0;
-		y++;
-	}
-	x = y = 0;
-	while (y < 36)
-	{
-		while (x < 32)
-		{
-			Dp.B2[y][x] = Dp.TMP[y][x];
-			x++;
-		}
-		x = 0;
-		y++;
-	}
+// 	x = y = 0;
+// 	while (y < 36)
+// 	{
+// 		while (x < 32)
+// 		{
+// 			if (Dp.B2[y-1][x-1] && Dp.B2[y-1][x] && Dp.B2[y-1][x+1] && Dp.B2[y][x-1] &&Dp.B2[y][x] && Dp.B2[y][x+1] && 
+// 				Dp.B2[y+1][x-1] && Dp.B2[y+1][x] && Dp.B2[y+1][x+1])
+// 			{
+// 				Dp.TMP[y][x] = TRUE;
+// 			}
+// 			else
+// 			{
+// 				Dp.TMP[y][x] = FALSE;
+// 			}
+// 			x++;
+// 		}
+// 		x = 0;
+// 		y++;
+// 	}
+// 	x = y = 0;
+// 	while (y < 36)
+// 	{
+// 		while (x < 32)
+// 		{
+// 			Dp.B2[y][x] = Dp.TMP[y][x];
+// 			x++;
+// 		}
+// 		x = 0;
+// 		y++;
+// 	}
 }
