@@ -6,22 +6,6 @@
 --------------------Configuration: ShowTL - Win32 Release--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPCE.tmp" with contents
-[
-/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Release/" /Fp"Release/ShowTL.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
-"E:\天龙外挂\图片验证码\3\ShowTLDlg.cpp"
-]
-Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPCE.tmp" 
-Creating command line "link.exe /nologo /subsystem:windows /incremental:no /pdb:"Release/ShowTL.pdb" /machine:I386 /out:"Release/ShowTL.exe"  ".\Release\ShowTL.obj" ".\Release\ShowTLDlg.obj" ".\Release\StdAfx.obj" ".\Release\ShowTL.res" "
-<h3>Output Window</h3>
-Compiling...
-ShowTLDlg.cpp
-E:\天龙外挂\图片验证码\3\ShowTLDlg.cpp(933) : warning C4101: 'ret' : unreferenced local variable
-E:\天龙外挂\图片验证码\3\ShowTLDlg.cpp(1073) : warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-Linking...
-Creating command line "bscmake.exe /nologo /o"Release/ShowTL.bsc"  ".\Release\StdAfx.sbr" ".\Release\ShowTL.sbr" ".\Release\ShowTLDlg.sbr""
-Creating browse info file...
-<h3>Output Window</h3>
 
 
 
