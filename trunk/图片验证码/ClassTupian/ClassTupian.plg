@@ -6,13 +6,13 @@
 --------------------Configuration: ClassTupian - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP177.tmp" with contents
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP31A.tmp" with contents
 [
 /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/ClassTupian.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
-"E:\天龙外挂\图片验证码\ClassTupian\ClassTupianDlg.cpp"
+"E:\tlautologin\trunk\图片验证码\ClassTupian\ClassTupianDlg.cpp"
 ]
-Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP177.tmp" 
-Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP178.tmp" with contents
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP31A.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP31B.tmp" with contents
 [
 /nologo /subsystem:windows /incremental:yes /pdb:"Debug/ClassTupian.pdb" /debug /machine:I386 /out:"Debug/ClassTupian.exe" /pdbtype:sept 
 ".\Debug\ClassTupian.obj"
@@ -21,11 +21,11 @@ Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP178.tmp" with con
 ".\Debug\StdAfx.obj"
 ".\Debug\ClassTupian.res"
 ]
-Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP178.tmp"
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP31B.tmp"
 <h3>Output Window</h3>
 Compiling...
 ClassTupianDlg.cpp
-E:\天龙外挂\图片验证码\ClassTupian\ClassTupianDlg.cpp(248) : warning C4102: 'Default' : unreferenced label
+E:\tlautologin\trunk\图片验证码\ClassTupian\ClassTupianDlg.cpp(248) : warning C4102: 'Default' : unreferenced label
 Linking...
 
 
