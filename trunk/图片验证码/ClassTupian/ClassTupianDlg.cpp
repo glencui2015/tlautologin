@@ -324,4 +324,72 @@ void CClassTupianDlg::OnButton3()
 		x = 0;
 		y++;
 	}
+	//下面是去掉数字内部的干扰点
+	x = y = 0;
+	while (y < 36)
+	{
+		while (x < 32)
+		{
+			if (Dp.B2[y-1][x-1] && Dp.B2[y-1][x] && Dp.B2[y-1][x+1] &&
+				Dp.B2[y][x-1]   &&!Dp.B2[y][x]   && Dp.B2[y][x+1]   && 
+				Dp.B2[y+1][x-1] && Dp.B2[y+1][x] && Dp.B2[y+1][x+1])
+			{
+				Dp.B2[y][x]  = true;
+			}
+			if (Dp.B2[y-1][x-1] && Dp.B2[y-1][x] && Dp.B2[y-1][x+1] && Dp.B2[y-1][x+2] &&
+				Dp.B2[y][x-1]   &&!Dp.B2[y][x]   &&!Dp.B2[y][x+1]   && Dp.B2[y][x+2]   &&
+				Dp.B2[y+1][x-1] && Dp.B2[y+1][x] && Dp.B2[y+1][x+1] && Dp.B2[y+1][x+2])
+			{
+				Dp.B2[y][x] = true;
+				Dp.B2[y][x+1] = true;
+			}
+			if (Dp.B2[y-1][x-1] && Dp.B2[y-1][x] && Dp.B2[y-1][x+1] &&
+				Dp.B2[y][x-1]   &&!Dp.B2[y][x]   && Dp.B2[y][x+1]   &&
+				Dp.B2[y+1][x-1] &&!Dp.B2[y+1][x] && Dp.B2[y+1][x+1] &&
+				Dp.B2[y+2][x-1] && Dp.B2[y+2][x] && Dp.B2[y+2][x+1])
+			{
+				Dp.B2[y][x] = true;
+				Dp.B2[y+1][x] = true;
+			}
+			if (Dp.B2[y-1][x-1] && Dp.B2[y-1][x] && Dp.B2[y-1][x+1] && Dp.B2[y-1][x+2] &&
+				Dp.B2[y][x-1]   &&!Dp.B2[y][x]   &&!Dp.B2[y][x+1]   && Dp.B2[y][x+2]   &&
+				Dp.B2[y+1][x-1] &&!Dp.B2[y+1][x] &&!Dp.B2[y+1][x+1] && Dp.B2[y+1][x+2] &&
+				Dp.B2[y+2][x-1] && Dp.B2[y+2][x] && Dp.B2[y+2][x+1] && Dp.B2[y+2][x+2])
+			{
+				Dp.B2[y][x] = true;
+				Dp.B2[y][x+1] = true;
+				Dp.B2[y+1][x] = true;
+				Dp.B2[y+1][x+1] = true;
+			}
+			x++;
+		}
+		x = 0;
+		y++;
+	}
+	//一下进行线条缩小
+	x = y = 0;
+	while (y < 36)      //首先要对TMP数组进行清空
+	{
+		while (x < 32)
+		{
+			Dp.TMP[y][x] = false;
+			x++;
+		}
+		x = 0;
+		y++;
+	}
+
+	//以上是进行 二值话 把数值的线条弄粗 下面进行 数字比对
+// 	x = y = 0;
+// 	while (y < 36)
+// 	{
+// 		while (x < 32)
+// 		{
+// 			before = Dp.B2[y][x];
+// 			
+// 			x++;
+// 		}
+// 		x = 0;
+// 		y++;
+// 	}
 }
