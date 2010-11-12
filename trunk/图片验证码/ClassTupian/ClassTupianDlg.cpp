@@ -206,209 +206,22 @@ char *pDate =      "\x00\x3F\xFF\xFF\xFF\x44\xE3\xB0\x00\x40\x00\x00\x3F\xD8\x00
 					"\x02\x00\x00\x00\x00\x02\x60\x00\x00\x00\x08\x00\x00\x01\x98\x40"
 					"\x00\x00\x00\x00\x00\x00\x10\x00\x00\x00\x00\x00\x00\x00\x18\x20"
 					"\x00\x00\x00\x00\x02\x00\x00\x00\x00\x00\x00\x00\x00\x04\x00\x00"
-					 "\x00\x13\x00\x00\x00\x00\x00\x00\x80\x00\x04\x00\x00\x06\x00\x00";
+					"\x00\x13\x00\x00\x00\x00\x00\x00\x80\x00\x04\x00\x00\x06\x00\x00";
 DealPic Dp;
 void CClassTupianDlg::OnButton1() 
 {
 	// TODO: Add your control notification handler code here
-	
-	int dLen = 0x240;
-	char c;
-	int a = 128;
-	int i = 0;
-	int j = 0;
-	int x = 0;
-	int y = 0;
-	int k = 0;
-	int ret = 0;
-	while (i < dLen)
-	{
-		a = 128;
-		c = pDate[i];
-		for (k = 0;k < 8;k++)
-		{
-			if (!(a&c))
-			{
-				ret = x / 32;
-				
-				switch (ret)
-				{
-				case 0:
-						Dp.B1[y][x%32] = !(a&c);
-						 break;
-				case 1:
-						 Dp.B2[y][x%32] = !(a&c);
-						 break;
-				case 2:
-						 Dp.B3[y][x%32] = !(a&c);
-						 break;
-				case 3:
-						 Dp.B4[y][x%32] = !(a&c);
-						 break;
-				Default:
-						 break;
-				}
-					
-			}
-			if (x == 127)
-			{
-				x = 0;
-				y++;
-			}
-			else
-			{
-				x++;
-			}
-			a = a >> 1;
-		}
-		i++;
-	}
+	Dp.LoadBin(pDate);
 }
 
 void CClassTupianDlg::OnButton2() 
 {
 	// TODO: Add your control notification handler code here
-	int x,y;
-	x = y = 0;
-	int up = 3;
-	while (y < 36)
-	{
-		while (x < 32)
-		{
-			if (Dp.B2[y][x])
-			{
-				SetPixel(::GetDC(this->m_hWnd),x*up,y*up,RGB(0,0,0));
-			}
-			x++;
-		}
-		x = 0;
-		y++;
-	}
-	
+	Dp.ShowNum(2, this->m_hWnd);
 }
 
 void CClassTupianDlg::OnButton3() 
 {
 	// TODO: Add your control notification handler code here
-	int x , y ;
-	x = y = 0;
-	BOOL before;
-
-	while (y < 36)
-	{
-		while (x < 32)
-		{
-			before = Dp.B2[y][x];
-			if (before == Dp.B2[y-1][x-1] && before == Dp.B2[y-1][x] && before == Dp.B2[y-1][x+1] && before == Dp.B2[y][x-1] && 
-		before == Dp.B2[y][x+1] && before == Dp.B2[y+1][x-1] && before == Dp.B2[y+1][x] && before == Dp.B2[y+1][x+1])
-			{
-				Dp.TMP[y][x] = FALSE;
-			}
-			else
-			{
-				Dp.TMP[y][x] = TRUE;
-			}
-			x++;
-		}
-		x = 0;
-		y++;
-	}
-	x = y = 0;
-	while (y < 36)
-	{
-		while (x < 32)
-		{
-			Dp.B2[y][x] = Dp.TMP[y][x];
-			x++;
-		}
-		x = 0;
-		y++;
-	}
-	//下面是去掉数字内部的干扰点
-	x = y = 0;
-	while (y < 36)
-	{
-		while (x < 32)
-		{
-			if (Dp.B2[y-1][x-1] && Dp.B2[y-1][x] && Dp.B2[y-1][x+1] &&
-				Dp.B2[y][x-1]   &&!Dp.B2[y][x]   && Dp.B2[y][x+1]   && 
-				Dp.B2[y+1][x-1] && Dp.B2[y+1][x] && Dp.B2[y+1][x+1])
-			{
-				Dp.B2[y][x]  = TRUE;
-			}
-			if (Dp.B2[y-1][x-1] && Dp.B2[y-1][x] && Dp.B2[y-1][x+1] && Dp.B2[y-1][x+2] &&
-				Dp.B2[y][x-1]   &&!Dp.B2[y][x]   &&!Dp.B2[y][x+1]   && Dp.B2[y][x+2]   &&
-				Dp.B2[y+1][x-1] && Dp.B2[y+1][x] && Dp.B2[y+1][x+1] && Dp.B2[y+1][x+2])
-			{
-				Dp.B2[y][x] = TRUE;
-				Dp.B2[y][x+1] = TRUE;
-			}
-			if (Dp.B2[y-1][x-1] && Dp.B2[y-1][x] && Dp.B2[y-1][x+1] &&
-				Dp.B2[y][x-1]   &&!Dp.B2[y][x]   && Dp.B2[y][x+1]   &&
-				Dp.B2[y+1][x-1] &&!Dp.B2[y+1][x] && Dp.B2[y+1][x+1] &&
-				Dp.B2[y+2][x-1] && Dp.B2[y+2][x] && Dp.B2[y+2][x+1])
-			{
-				Dp.B2[y][x] = TRUE;
-				Dp.B2[y+1][x] = TRUE;
-			}
-			if (Dp.B2[y-1][x-1] && Dp.B2[y-1][x] && Dp.B2[y-1][x+1] && Dp.B2[y-1][x+2] &&
-				Dp.B2[y][x-1]   &&!Dp.B2[y][x]   &&!Dp.B2[y][x+1]   && Dp.B2[y][x+2]   &&
-				Dp.B2[y+1][x-1] &&!Dp.B2[y+1][x] &&!Dp.B2[y+1][x+1] && Dp.B2[y+1][x+2] &&
-				Dp.B2[y+2][x-1] && Dp.B2[y+2][x] && Dp.B2[y+2][x+1] && Dp.B2[y+2][x+2])
-			{
-				Dp.B2[y][x] = TRUE;
-				Dp.B2[y][x+1] = TRUE;
-				Dp.B2[y+1][x] = TRUE;
-				Dp.B2[y+1][x+1] = TRUE;
-			}
-			if (Dp.B2[y-1][x-1] && Dp.B2[y-1][x] && Dp.B2[y-1][x+1] && Dp.B2[y-1][x+2] && Dp.B2[y-1][x+3] &&
-				Dp.B2[y][x-1]   &&!Dp.B2[y][x]   &&!Dp.B2[y][x+1]   &&!Dp.B2[y][x+2]   && Dp.B2[y][x+3]   &&
-				Dp.B2[y+1][x-1] && Dp.B2[y+1][x] && Dp.B2[y+1][x+1] && Dp.B2[y+1][x+2] && Dp.B2[y+1][x+3])
-			{
-				Dp.B2[y][x] = TRUE;
-				Dp.B2[y][x+1] = TRUE;
-				Dp.B2[y][x+2] = TRUE;
-			}
-			if (Dp.B2[y-1][x-1] && Dp.B2[y-1][x] && Dp.B2[y-1][x+1] &&
-				Dp.B2[y][x-1]   &&!Dp.B2[y][x]   && Dp.B2[y][x+1]   &&
-				Dp.B2[y+1][x-1] &&!Dp.B2[y+1][x] && Dp.B2[y+1][x+1] &&
-				Dp.B2[y+2][x-1] &&!Dp.B2[y+2][x] && Dp.B2[y+2][x+1] &&
-				Dp.B2[y+3][x-1] && Dp.B2[y+3][x] && Dp.B2[y+3][x+1])
-			{
-				Dp.B2[y][x] = TRUE;
-				Dp.B2[y+1][x] = TRUE;
-				Dp.B2[y+2][x] = TRUE;
-			}
-			
-			x++;
-		}
-		x = 0;
-		y++;
-	}
-	//一下进行线条缩小
-	x = y = 0;
-	while (y < 36)      //首先要对TMP数组进行清空
-	{
-		while (x < 32)
-		{
-			Dp.TMP[y][x] = false;
-			x++;
-		}
-		x = 0;
-		y++;
-	}
-	
-	//以上是进行 二值话 把数值的线条弄粗 下面进行 数字比对
-// 	x = y = 0;
-// 	while (y < 36)
-// 	{
-// 		while (x < 32)
-// 		{
-// 			before = Dp.B2[y][x];
-// 			
-// 			x++;
-// 		}
-// 		x = 0;
-// 		y++;
-// 	}
+	Dp.DealNum();
 }
