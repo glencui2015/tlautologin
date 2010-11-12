@@ -6,6 +6,32 @@
 --------------------Configuration: ClassTupian - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP1D5.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/ClassTupian.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\tlautologin\trunk\图片验证码\ClassTupian\DealPic.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP1D5.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP1D6.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/ClassTupian.pdb" /debug /machine:I386 /out:"Debug/ClassTupian.exe" /pdbtype:sept 
+".\Debug\ClassTupian.obj"
+".\Debug\ClassTupianDlg.obj"
+".\Debug\DealPic.obj"
+".\Debug\StdAfx.obj"
+".\Debug\ClassTupian.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP1D6.tmp"
+<h3>Output Window</h3>
+Compiling...
+DealPic.cpp
+E:\tlautologin\trunk\图片验证码\ClassTupian\DealPic.cpp(83) : warning C4102: 'Default' : unreferenced label
+E:\tlautologin\trunk\图片验证码\ClassTupian\DealPic.cpp(349) : warning C4102: 'Default' : unreferenced label
+E:\tlautologin\trunk\图片验证码\ClassTupian\DealPic.cpp(452) : warning C4102: 'Default' : unreferenced label
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/ClassTupian.bsc"  ".\Debug\StdAfx.sbr" ".\Debug\ClassTupian.sbr" ".\Debug\ClassTupianDlg.sbr" ".\Debug\DealPic.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
 
 
 

@@ -35,6 +35,8 @@ public:
 	BOOL DealNum(); // 对图片阵列进行处理 将结果放到NUMBER里面
 	BOOL DealFirst();
 	int  DealOne(int n);   //对一个进行初步处理的数字阵列进行 判断 将结果返回
+	BOOL IsLine(int n, int bias, IN int x,IN int y, OUT int *ox,OUT int *oy);
+
 };
 
 #endif // !defined(AFX_DEALPIC_H__D4520936_3823_411E_B86F_CCDC9639B760__INCLUDED_)
