@@ -7,7 +7,7 @@ LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "ClassTupian.h"
 
-ClassCount=4
+ClassCount=3
 Class1=CClassTupianApp
 Class2=CClassTupianDlg
 Class3=CAboutDlg
@@ -30,6 +30,7 @@ ImplementationFile=ClassTupianDlg.cpp
 Filter=D
 BaseClass=CDialog
 VirtualFilter=dWC
+LastObject=IDC_EDIT1
 
 [CLS:CAboutDlg]
 Type=0
@@ -49,8 +50,9 @@ Control4=IDOK,button,1342373889
 [DLG:IDD_CLASSTUPIAN_DIALOG]
 Type=1
 Class=CClassTupianDlg
-ControlCount=3
+ControlCount=4
 Control1=IDC_BUTTON1,button,1342242816
 Control2=IDC_BUTTON2,button,1342242816
 Control3=IDC_BUTTON3,button,1342242816
+Control4=IDC_EDIT1,edit,1350631552
 

@@ -12,6 +12,22 @@ static char THIS_FILE[]=__FILE__;
 #define new DEBUG_NEW
 #endif
 
+#define  IN
+#define  OUT
+
+#define  CLOCK0 0
+#define  CLOCK1 1
+#define  CLOCK2 2
+#define  CLOCK3 3
+#define  CLOCK4 4
+#define  CLOCK5 5
+#define  CLOCK6 6
+#define  CLOCK7 7
+#define  CLOCK8 8
+#define  CLOCK9 9
+#define  CLOCK10 10
+#define  CLOCK11 11
+
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
@@ -96,6 +112,7 @@ BOOL DealPic::ShowNum(int n, HWND hWnd)
 	{
 		while (x < 32)
 		{
+			SetPixel(::GetDC(hWnd),x*up,y*up,RGB(255,255,255));
 			if (this->BO[n][y][x])
 			{
 				SetPixel(::GetDC(hWnd),x*up,y*up,RGB(0,0,0));
@@ -115,7 +132,9 @@ BOOL DealPic::DealNum()
 	this->DealFirst();
 	return true;
 }
-BOOL DealPic::DealFirst()
+//////////////////////////////////////////////////////////////////////////
+//功能： 将位图图片进行一次性处理 所有的处理工作都在这里进行 其他的函数在进行分析。 
+BOOL DealPic::DealFirst()     
 {
 	int x , y , n;
 	x = y = n = 0;
@@ -251,6 +270,9 @@ BOOL DealPic::DealFirst()
 		x = y = 0;
 		n++;
 	}
+
+
+
 return true;
 }
 //////////////////////////////////////////////////////////////////////////
@@ -269,52 +291,63 @@ int  DealPic::DealOne(int n)
 			{
 				Ret[n] = true;
 			}
+			break;
 		case 1:
 			if (this->IsOne(n))
 			{
 				Ret[n] = true;
 			}
+			break;
 		case 2:
 			if (this->IsTwo(n))
 			{
 				Ret[n] = true;
 			}
+			break;
 		case 3:
 			if (this->IsThree(n))
 			{
 				Ret[n] = true;
 			}
+			break;
 		case 4:
 			if (this->IsFour(n))
 			{
 				Ret[n] = true;
 			}
+			break;
 		case 5:
 			if (this->IsFive(n))
 			{
 				Ret[n] = true;
 			}
+			break;
 		case 6:
 			if (this->IsSix(n))
 			{
 				Ret[n] = true;
 			}
+			break;
 		case 7:
 			if (this->IsSeven(n))
 			{
 				Ret[n] = true;
 			}
+			break;
 		case 8:
 			if (this->IsEight(n))
 			{
 				Ret[n] = true;
 			}
+			break;
 		case 9:
 			if (this->IsNine(n))
 			{
 				Ret[n] = true;
 			}
-			
+			break;
+Default:
+					break;
 		}
 		i++;
 	}
@@ -329,6 +362,7 @@ int  DealPic::DealOne(int n)
 //////////////////////////////////////////////////////////////////////////
 BOOL DealPic::IsZero(int n)
 {
+	
 	return true;
 }
 
@@ -374,5 +408,51 @@ BOOL DealPic::IsEight(int n)
 
 BOOL DealPic::IsNine(int n)
 {
+	return true;
+}
+//////////////////////////////////////////////////////////////////////////
+//功能：判断 制定坐标的周围有没有iclock制定的倾斜的直线 宽度现在默认是4 
+//参数：
+//		int *ox   如果有直线 返回直线另一端的x坐标
+//		int *oy   如果有直线 返回直线另一端的y坐标
+//		int x     指定坐标的x坐标
+//		int y	  指定坐标的y坐标
+//		int iclock  指定倾斜的方向 这里用整点数来做区别 用宏clock0-clock11来表示0点到11点的方向
+//		int n	  用来表示判断第几个数
+//////////////////////////////////////////////////////////////////////////
+
+BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y, OUT int *ox,OUT int *oy)
+{
+	switch(iclock)
+	{
+	case CLOCK0:
+		break;
+	case CLOCK1:
+		break;
+	case CLOCK2:
+		break;
+	case CLOCK3:
+		break;
+	case CLOCK4:
+		break;
+	case CLOCK5:
+		break;
+	case CLOCK6:
+		break;
+	case CLOCK7:
+		break;
+	case CLOCK8:
+		break;
+	case CLOCK9:
+		break;
+	case CLOCK10:
+		break;
+	case CLOCK11:
+		break;
+Default:
+					break;
+	}
+	
+	
 	return true;
 }

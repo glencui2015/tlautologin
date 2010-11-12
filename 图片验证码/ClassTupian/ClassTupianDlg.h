@@ -20,7 +20,7 @@ public:
 // Dialog Data
 	//{{AFX_DATA(CClassTupianDlg)
 	enum { IDD = IDD_CLASSTUPIAN_DIALOG };
-		// NOTE: the ClassWizard will add data members here
+	CString	m_edit;
 	//}}AFX_DATA
 
 	// ClassWizard generated virtual function overrides
