@@ -439,11 +439,21 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y, OUT int *ox,OUT int *
 		}
 		break;
 	case CLOCK1:
-// 		if (this->BO)
-// 		{
-// 		}
+		if (this->BO[n][y-14][x+5] && this->BO[n][y-13][x+5] && this->BO[n][y-12][x+4] && this->BO[n][y-12][x+5] && 
+			this->BO[n][y-11][x+4] && this->BO[n][y-11][x+5] && this->BO[n][y-10][x+3] && this->BO[n][y-10][x+4] && this->BO[n][y-10][x+5] && 
+			this->BO[n][y-9][x+3] && this->BO[n][y-9][x+4] && this->BO[n][y-8][x+2] && this->BO[n][y-8][x+3] && this->BO[n][y-8][x+4] && 
+			this->BO[n][y-7][x+2] && this->BO[n][y-7][x+3] && this->BO[n][y-6][x+1] && this->BO[n][y-6][x+2] && this->BO[n][y-6][x+3] && 
+			this->BO[n][y-5][x+1] && this->BO[n][y-5][x+2] && this->BO[n][y-4][x] && this->BO[n][y-4][x+1] && this->BO[n][y-4][x+2] && 
+			this->BO[n][y-3][x] && this->BO[n][y-3][x+1] && this->BO[n][y-2][x] && this->BO[n][y-2][x+1] && 
+			this->BO[n][y-1][x] && this->BO[n][y][x])
+		{
+			return TRUE;
+		}
 		break;
 	case CLOCK2:
+		if (this->BO[n][y][x] && this->BO[n][y][x] && this->BO[n][y][x] && )
+		{
+		}
 		break;
 	case CLOCK3:
 		break;
