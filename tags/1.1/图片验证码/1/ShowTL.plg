@@ -1,0 +1,42 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ShowTL - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPC0.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/ShowTL.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\天龙外挂\复件 ShowTL1\ShowTL.cpp"
+"E:\天龙外挂\复件 ShowTL1\ShowTLDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPC0.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/ShowTL.pdb" /debug /machine:I386 /out:"Debug/ShowTL.exe" /pdbtype:sept  ".\Debug\ShowTL.obj" ".\Debug\ShowTLDlg.obj" ".\Debug\StdAfx.obj" ".\Debug\ShowTL.res" "
+<h3>Output Window</h3>
+Compiling...
+ShowTLDlg.cpp
+E:\天龙外挂\复件 ShowTL1\ShowTLDlg.cpp(90) : error C2065: 'OnButton5' : undeclared identifier
+E:\天龙外挂\复件 ShowTL1\ShowTLDlg.cpp(90) : error C2440: 'type cast' : cannot convert from 'int *' to 'void (__thiscall CCmdTarget::*)(void)'
+        There is no context in which this conversion is possible
+E:\天龙外挂\复件 ShowTL1\ShowTLDlg.cpp(1044) : error C2039: 'OnButton5' : is not a member of 'CShowTLDlg'
+        e:\天龙外挂\复件 showtl1\showtldlg.h(14) : see declaration of 'CShowTLDlg'
+E:\天龙外挂\复件 ShowTL1\ShowTLDlg.cpp(1045) : error C2373: 'OnButton5' : redefinition; different type modifiers
+E:\天龙外挂\复件 ShowTL1\ShowTLDlg.cpp(1052) : warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+Generating Code...
+Compiling...
+ShowTL.cpp
+Generating Code...
+执行 cl.exe 时出错.
+Creating command line "bscmake.exe /nologo /o"Debug/ShowTL.bsc"  ".\Debug\StdAfx.sbr" ".\Debug\ShowTL.sbr" ".\Debug\ShowTLDlg.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+ShowTL.exe - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
