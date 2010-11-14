@@ -44,12 +44,8 @@ Dim my As Integer
 Dim fx As String
 Dim fy As String
 Dim num As Integer
-MsgBox Str(Indexshowpt)
-
 my = Indexshowpt \ 32
 mx = Indexshowpt Mod 32
-MsgBox Str(my) + Str(mx)
-
 For Y = 0 To 35
     For X = 0 To 31
         If X <> 0 Or Y <> 0 Then
