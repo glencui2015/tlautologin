@@ -60,22 +60,21 @@ Dim num As Integer
 Pt(0).ToolTipText = "x: 0,y: 0"
 For Y = 0 To 35
     For X = 0 To 31
+        If X <> 0 Or Y <> 0 Then
             num = Y * 32 + X
+            If X = 0 Or X = 7 Or X = 8 Or X = 15 Or X = 16 Or X = 23 Or X = 24 Or X = 31 Or Y = 0 Or Y = 8 Or Y = 9 Or Y = 17 Or Y = 18 Or Y = 26 Or Y = 27 Or Y = 35 Then
+            Pt(num).BackColor = 16744703
+            Else
             Pt(num).BackColor = 0
+            End If
+        End If
     Next
-    
-
 Next
 End Sub
 
 Private Sub Command2_Click()
 If znum <> 10000 Then
-    If Pt(znum).BackColor = 0 Then
-        Pt(znum).BackColor = 255
-    Else
-        Pt(znum).BackColor = 0
-    End If
-    
+Pt(znum).BackColor = 16777215 - Pt(znum).BackColor
     
 End If
 
@@ -99,20 +98,22 @@ For Y = 0 To 35
             Pt(num).Visible = True
             Pt(num).Enabled = True
             Pt(num).ToolTipText = "x:" + Str(X) + ",y:" + Str(Y)
+            If X = 0 Or X = 7 Or X = 8 Or X = 15 Or X = 16 Or X = 23 Or X = 24 Or X = 31 Or Y = 0 Or Y = 8 Or Y = 9 Or Y = 17 Or Y = 18 Or Y = 26 Or Y = 27 Or Y = 35 Then
+            Pt(num).BackColor = 16744703
+            End If
+            
         End If
     Next
 Next
-
+Pt(0).BackColor = 16744703
 End Sub
 
 Private Sub Pt_MouseDown(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
 If Button = 1 Then
     
-    If Pt(Index).BackColor = 0 Then
-    Pt(Index).BackColor = 255
-    Else
-    Pt(Index).BackColor = 0
-    End If
+
+    Pt(Index).BackColor = 16777215 - Pt(Index).BackColor
+
     znum = Index
 End If
 
