@@ -362,7 +362,14 @@ Default:
 //////////////////////////////////////////////////////////////////////////
 BOOL DealPic::IsZero(int n)
 {
-	
+	int osx = 0;
+	int osy = 0;
+	int odx = 0;
+	int ody = 0;
+	if (InZoneRich(n,CLOCK7,8,0,23,17,&osx,&osy,&odx,&ody))
+	{
+		
+	}
 	return true;
 }
 
@@ -571,5 +578,87 @@ Default:
 	}
 	
 	
+	return FALSE;
+}
+
+//////////////////////////////////////////////////////////////////////////
+//功能：用来判断在指定区域内是否有指定 比划的线条 
+//参数： int iclock 斜率
+//sx xy 原坐标 dx dy 目标坐标 这两个点形成一个矩形区域 
+//n 用来判断第几个 数字阵列 
+//////////////////////////////////////////////////////////////////////////
+BOOL DealPic::InZoneRich(int n,int iclock,int sx,int xy,int dx,int dy,OUT int *osx,OUT int *osy, OUT int *odx,OUT int *ody)
+{
+	int x = sx;
+	int y = xy;
+	while (y <= dy )
+	{
+		while (x <= dx)
+		{
+			if (this->IsLine(n,iclock,x,y))
+			{
+				*osx = x;
+				*osy = y;
+				switch (iclock)
+				{
+				case CLOCK0:
+					*odx = x+4;
+					*ody = y-7;
+					break;
+				case CLOCK1:
+					*odx = x+5;
+					*ody = y-14;
+					break;
+				case CLOCK2:
+					*odx = x+5;
+					*ody = y-9;
+					break;
+				case CLOCK3:
+					*odx = x+7;
+					*ody = y-4;
+					break;
+				case CLOCK4:
+					*odx = x+5;
+					*ody = y+9;
+					break;
+				case CLOCK5:
+					*odx = x+5;
+					*ody = y+14;
+					break;
+				case CLOCK6:
+					*odx = x+4;
+					*ody = y+7;
+					break;
+				case CLOCK7:
+					*odx = x-5;
+					*ody = y+14;
+					break;
+				case CLOCK8:
+					*odx = x-5;
+					*ody = y+9;
+					break;
+				case CLOCK9:
+					*odx = x-7;
+					*ody = y+4;
+					break;
+				case CLOCK10:
+					*odx = x-5;
+					*ody = y-9;
+					break;
+				case CLOCK11:
+					*odx = x-5;
+					*ody = y-14;
+					break;
+				default:
+					break;
+
+				}
+				return TRUE;
+			}
+			x++;
+		}
+		x = sx;
+		y++;
+	}
 	return FALSE;
 }
