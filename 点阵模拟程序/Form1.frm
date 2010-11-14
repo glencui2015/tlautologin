@@ -2,15 +2,15 @@ VERSION 5.00
 Begin VB.Form Form1 
    BackColor       =   &H00FFFFFF&
    Caption         =   "点阵模拟程序"
-   ClientHeight    =   12045
-   ClientLeft      =   60
-   ClientTop       =   420
-   ClientWidth     =   11205
+   ClientHeight    =   12135
+   ClientLeft      =   165
+   ClientTop       =   825
+   ClientWidth     =   11430
    FillColor       =   &H000000FF&
    ForeColor       =   &H000000FF&
    LinkTopic       =   "Form1"
-   ScaleHeight     =   12045
-   ScaleWidth      =   11205
+   ScaleHeight     =   12135
+   ScaleWidth      =   11430
    StartUpPosition =   3  '窗口缺省
    Begin VB.CommandButton Command2 
       Caption         =   "撤销"
@@ -38,6 +38,12 @@ Begin VB.Form Form1
       Top             =   10080
       Width           =   855
    End
+   Begin VB.Menu Popmenu 
+      Caption         =   "PopMenu"
+      Begin VB.Menu 生成代码 
+         Caption         =   "生成代码"
+      End
+   End
 End
 Attribute VB_Name = "Form1"
 Attribute VB_GlobalNameSpace = False
@@ -45,6 +51,8 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim znum As Integer
+
+
 Private Sub Command1_Click()
 Dim X As Integer
 Dim Y As Integer
@@ -92,21 +100,32 @@ For Y = 0 To 35
             Pt(num).Enabled = True
             Pt(num).ToolTipText = "x:" + Str(X) + ",y:" + Str(Y)
         End If
-        
     Next
-    
-
 Next
 
 End Sub
 
-Private Sub Pt_Click(Index As Integer)
-If Pt(Index).BackColor = 0 Then
-Pt(Index).BackColor = 255
-Else
-Pt(Index).BackColor = 0
+Private Sub Pt_MouseDown(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
+If Button = 1 Then
+    
+    If Pt(Index).BackColor = 0 Then
+    Pt(Index).BackColor = 255
+    Else
+    Pt(Index).BackColor = 0
+    End If
+    znum = Index
 End If
-znum = Index
+
+If Button = 2 Then
+Indexshowpt = Index
+PopupMenu Popmenu
+
+End If
 
 End Sub
 
+Private Sub 生成代码_Click()
+
+
+ShowPt.Visible = True
+End Sub
