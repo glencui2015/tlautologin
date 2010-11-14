@@ -366,6 +366,7 @@ BOOL DealPic::IsZero(int n)
 	int osy = 0;
 	int odx = 0;
 	int ody = 0;
+
 	if (InZoneRich(n,CLOCK7,8,0,23,17,&osx,&osy,&odx,&ody))
 	{
 		
