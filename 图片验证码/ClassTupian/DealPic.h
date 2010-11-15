@@ -8,7 +8,11 @@
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-
+typedef struct Gestures
+{
+	int iGestures;
+	Gestures *pnext;
+};
 class DealPic  
 {
 public:
@@ -36,7 +40,8 @@ public:
 	BOOL DealFirst();
 	int  DealOne(int n);   //对一个进行初步处理的数字阵列进行 判断 将结果返回
 	BOOL IsLine(int n, int iclock, IN int x,IN int y);
-	BOOL InZoneRich(int n,int iclock,int sx,int xy,int dx,int dy,OUT int *osx,OUT int *osy, OUT int *odx,OUT int *ody);
+	BOOL InZoneRich(int n,int iclock,int sx,int sy,int dx,int dy,OUT int *osx,OUT int *osy, OUT int *odx,OUT int *ody);
+	BOOL InReaturn(int n, Gestures *G,int Tilt,int sx,int sy,int dx,int dy);//No 表示第几个比划 Gesture 表示比划的方向 Tilt 表示当前斜率既 -1 表示左倾斜，0 表示正常 1 表示有倾斜
 };
 
 #endif // !defined(AFX_DEALPIC_H__D4520936_3823_411E_B86F_CCDC9639B760__INCLUDED_)
