@@ -50,7 +50,7 @@ For Y = 0 To 35
     For X = 0 To 31
         If X <> 0 Or Y <> 0 Then
             num = Y * 32 + X
-            If Form1.Pt(num).BackColor = 255 Then
+            If Form1.Pt(num).BackColor = 16777215 Or Form1.Pt(num).BackColor = 32512 Then
                 If Y - my < 0 Then
                 fy = ""
                 Else
