@@ -27,6 +27,11 @@ static char THIS_FILE[]=__FILE__;
 #define  CLOCK9 9
 #define  CLOCK10 10
 #define  CLOCK11 11
+#define  CLOCK12 12
+#define  CLOCK13 13
+#define  CLOCK14 14
+#define  CLOCK15 15
+
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -434,142 +439,100 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y)
 	switch(iclock)
 	{
 	case CLOCK0:
-		if (this->BO[n][y-7][x-1] && this->BO[n][y-7][x-2] && this->BO[n][y-7][x] && this->BO[n][y-7][x+1] && this->BO[n][y-7][x+2] && 
-			this->BO[n][y-6][x-1] && this->BO[n][y-6][x-2] && this->BO[n][y-6][x] && this->BO[n][y-6][x+1] && this->BO[n][y-6][x+2] && 
-			this->BO[n][y-5][x-1] && this->BO[n][y-5][x-2] && this->BO[n][y-5][x] && this->BO[n][y-5][x+1] && this->BO[n][y-5][x+2] && 
-			this->BO[n][y-4][x-1] && this->BO[n][y-4][x-2] && this->BO[n][y-4][x] && this->BO[n][y-4][x+1] && this->BO[n][y-4][x+2] && 
-			this->BO[n][y-3][x-1] && this->BO[n][y-3][x-2] && this->BO[n][y-3][x] && this->BO[n][y-3][x+1] && this->BO[n][y-3][x+2] && 
-			this->BO[n][y-2][x-1] && this->BO[n][y-2][x-2] && this->BO[n][y-2][x] && this->BO[n][y-2][x+1] && this->BO[n][y-2][x+2] && 
-			this->BO[n][y-1][x-1] && this->BO[n][y-1][x-2] && this->BO[n][y-1][x] && this->BO[n][y-1][x+1] && this->BO[n][y-1][x+2] && 
-			this->BO[n][y][x-1]   && this->BO[n][y][x-1]   && this->BO[n][y][x]   && this->BO[n][y][x+1]   && this->BO[n][y][x+1])
+		if (this->BO[n][y-8][x+0] && this->BO[n][y-8][x+1] && this->BO[n][y-8][x+2] && this->BO[n][y-7][x+0] && this->BO[n][y-7][x+1] && this->BO[n][y-7][x+2] && this->BO[n][y-6][x+0] && this->BO[n][y-6][x+1] && this->BO[n][y-6][x+2] && this->BO[n][y-5][x+0] && this->BO[n][y-5][x+1] && this->BO[n][y-5][x+2] && this->BO[n][y-4][x+0] && this->BO[n][y-4][x+1] && this->BO[n][y-4][x+2] && this->BO[n][y-3][x+0] && this->BO[n][y-3][x+1] && this->BO[n][y-3][x+2] && this->BO[n][y-2][x+0] && this->BO[n][y-2][x+1] && this->BO[n][y-2][x+2] && this->BO[n][y-1][x+0] && this->BO[n][y-1][x+1] && this->BO[n][y-1][x+2] && this->BO[n][y+0][x+0] && this->BO[n][y+0][x+1] && this->BO[n][y+0][x+2])
 		{
 			return TRUE;
 		}
 		break;
 	case CLOCK1:
-		if (this->BO[n][y-14][x+5] && this->BO[n][y-13][x+5] && this->BO[n][y-12][x+4] && this->BO[n][y-12][x+5] && 
-			this->BO[n][y-11][x+4] && this->BO[n][y-11][x+5] && this->BO[n][y-10][x+3] && this->BO[n][y-10][x+4] && this->BO[n][y-10][x+5] && 
-			this->BO[n][y-9][x+3] && this->BO[n][y-9][x+4] && this->BO[n][y-8][x+2] && this->BO[n][y-8][x+3] && this->BO[n][y-8][x+4] && 
-			this->BO[n][y-7][x+2] && this->BO[n][y-7][x+3] && this->BO[n][y-6][x+1] && this->BO[n][y-6][x+2] && this->BO[n][y-6][x+3] && 
-			this->BO[n][y-5][x+1] && this->BO[n][y-5][x+2] && this->BO[n][y-4][x] && this->BO[n][y-4][x+1] && this->BO[n][y-4][x+2] && 
-			this->BO[n][y-3][x] && this->BO[n][y-3][x+1] && this->BO[n][y-2][x] && this->BO[n][y-2][x+1] && 
-			this->BO[n][y-1][x] && this->BO[n][y][x])
+		if (this->BO[n][y-12][x+5] && this->BO[n][y-11][x+5] && this->BO[n][y-10][x+4] && this->BO[n][y-10][x+5] && this->BO[n][y-9][x+4] && this->BO[n][y-8][x+3] && this->BO[n][y-8][x+4] && this->BO[n][y-7][x+3] && this->BO[n][y-6][x+2] && this->BO[n][y-6][x+3] && this->BO[n][y-5][x+2] && this->BO[n][y-4][x+1] && this->BO[n][y-4][x+2] && this->BO[n][y-3][x+1] && this->BO[n][y-2][x+0] && this->BO[n][y-2][x+1] && this->BO[n][y-1][x+0] && this->BO[n][y+0][x+0])
 		{
 			return TRUE;
 		}
 		break;
 	case CLOCK2:
-		if (this->BO[n][y-9][x+5] && this->BO[n][y-8][x+4] && this->BO[n][y-8][x+5] && this->BO[n][y-7][x+3] && this->BO[n][y-7][x+4] && 
-			this->BO[n][y-7][x+5] && this->BO[n][y-6][x+2] && this->BO[n][y-6][x+3] && this->BO[n][y-6][x+4] && this->BO[n][y-6][x+5] && 
-			this->BO[n][y-5][x+1] && this->BO[n][y-5][x+2] && this->BO[n][y-5][x+3] && this->BO[n][y-5][x+4] && this->BO[n][y-5][x+5] && 
-			this->BO[n][y-4][x+0] && this->BO[n][y-4][x+1] && this->BO[n][y-4][x+2] && this->BO[n][y-4][x+3] && this->BO[n][y-4][x+4] && 
-			this->BO[n][y-3][x+0] && this->BO[n][y-3][x+1] && this->BO[n][y-3][x+2] && this->BO[n][y-3][x+3] && this->BO[n][y-2][x+0] && 
-			this->BO[n][y-2][x+1] && this->BO[n][y-2][x+2] && this->BO[n][y-1][x+0] && this->BO[n][y-1][x+1] && this->BO[n][y+0][x+0])
+		if (this->BO[n][y-8][x+7] && this->BO[n][y-8][x+8] && this->BO[n][y-7][x+6] && this->BO[n][y-7][x+7] && this->BO[n][y-7][x+8] && this->BO[n][y-6][x+5] && this->BO[n][y-6][x+6] && this->BO[n][y-6][x+7] && this->BO[n][y-5][x+4] && this->BO[n][y-5][x+5] && this->BO[n][y-5][x+6] && this->BO[n][y-4][x+3] && this->BO[n][y-4][x+4] && this->BO[n][y-4][x+5] && this->BO[n][y-3][x+2] && this->BO[n][y-3][x+3] && this->BO[n][y-3][x+4] && this->BO[n][y-2][x+1] && this->BO[n][y-2][x+2] && this->BO[n][y-2][x+3] && this->BO[n][y-1][x+0] && this->BO[n][y-1][x+1] && this->BO[n][y-1][x+2] && this->BO[n][y+0][x+0] && this->BO[n][y+0][x+1])
 		{
+
 			return TRUE;
 		}
 		break;
 	case CLOCK3:
-		if (this->BO[n][y-4][x+0] && this->BO[n][y-4][x+1] && this->BO[n][y-4][x+2] && this->BO[n][y-4][x+3] && this->BO[n][y-4][x+4] && 
-			this->BO[n][y-4][x+5] && this->BO[n][y-4][x+6] && this->BO[n][y-4][x+7] && this->BO[n][y-3][x+0] && this->BO[n][y-3][x+1] && 
-			this->BO[n][y-3][x+2] && this->BO[n][y-3][x+3] && this->BO[n][y-3][x+4] && this->BO[n][y-3][x+5] && this->BO[n][y-3][x+6] && 
-			this->BO[n][y-3][x+7] && this->BO[n][y-2][x+0] && this->BO[n][y-2][x+1] && this->BO[n][y-2][x+2] && this->BO[n][y-2][x+3] && 
-			this->BO[n][y-2][x+4] && this->BO[n][y-2][x+5] && this->BO[n][y-2][x+6] && this->BO[n][y-2][x+7] && this->BO[n][y-1][x+0] && 
-			this->BO[n][y-1][x+1] && this->BO[n][y-1][x+2] && this->BO[n][y-1][x+3] && this->BO[n][y-1][x+4] && this->BO[n][y-1][x+5] && 
-			this->BO[n][y-1][x+6] && this->BO[n][y-1][x+7] && this->BO[n][y+0][x+0] && this->BO[n][y+0][x+1] && this->BO[n][y+0][x+2] && 
-			this->BO[n][y+0][x+3] && this->BO[n][y+0][x+4] && this->BO[n][y+0][x+5] && this->BO[n][y+0][x+6] && this->BO[n][y+0][x+7])
+		if (this->BO[n][y-5][x+10] && this->BO[n][y-5][x+11] && this->BO[n][y-5][x+12] && this->BO[n][y-4][x+8] && this->BO[n][y-4][x+9] && this->BO[n][y-4][x+10] && this->BO[n][y-3][x+6] && this->BO[n][y-3][x+7] && this->BO[n][y-3][x+8] && this->BO[n][y-2][x+4] && this->BO[n][y-2][x+5] && this->BO[n][y-2][x+6] && this->BO[n][y-1][x+2] && this->BO[n][y-1][x+3] && this->BO[n][y-1][x+4] && this->BO[n][y+0][x+0] && this->BO[n][y+0][x+1] && this->BO[n][y+0][x+2])
 		{
+
 			return TRUE;
 		}
 		break;
 	case CLOCK4:
-		if (this->BO[n][y+0][x+0] && this->BO[n][y+1][x+0] && this->BO[n][y+1][x+1] && this->BO[n][y+2][x+0] && this->BO[n][y+2][x+1] && 
-			this->BO[n][y+2][x+2] && this->BO[n][y+3][x+0] && this->BO[n][y+3][x+1] && this->BO[n][y+3][x+2] && this->BO[n][y+3][x+3] && 
-			this->BO[n][y+4][x+0] && this->BO[n][y+4][x+1] && this->BO[n][y+4][x+2] && this->BO[n][y+4][x+3] && this->BO[n][y+4][x+4] && 
-			this->BO[n][y+5][x+1] && this->BO[n][y+5][x+2] && this->BO[n][y+5][x+3] && this->BO[n][y+5][x+4] && this->BO[n][y+5][x+5] && 
-			this->BO[n][y+6][x+2] && this->BO[n][y+6][x+3] && this->BO[n][y+6][x+4] && this->BO[n][y+6][x+5] && this->BO[n][y+7][x+3] && 
-			this->BO[n][y+7][x+4] && this->BO[n][y+7][x+5] && this->BO[n][y+8][x+4] && this->BO[n][y+8][x+5] && this->BO[n][y+9][x+5])
+		if (this->BO[n][y-2][x+0] && this->BO[n][y-2][x+1] && this->BO[n][y-2][x+2] && this->BO[n][y-2][x+3] && this->BO[n][y-2][x+4] && this->BO[n][y-2][x+5] && this->BO[n][y-2][x+6] && this->BO[n][y-2][x+7] && this->BO[n][y-1][x+0] && this->BO[n][y-1][x+1] && this->BO[n][y-1][x+2] && this->BO[n][y-1][x+3] && this->BO[n][y-1][x+4] && this->BO[n][y-1][x+5] && this->BO[n][y-1][x+6] && this->BO[n][y-1][x+7] && this->BO[n][y+0][x+0] && this->BO[n][y+0][x+1] && this->BO[n][y+0][x+2] && this->BO[n][y+0][x+3] && this->BO[n][y+0][x+4] && this->BO[n][y+0][x+5] && this->BO[n][y+0][x+6] && this->BO[n][y+0][x+7])
 		{
 			return TRUE;
 		}
 		break;
 	case CLOCK5:
-		if (this->BO[n][y+0][x+0] && this->BO[n][y+1][x+0] && this->BO[n][y+2][x+0] && this->BO[n][y+2][x+1] && this->BO[n][y+3][x+0] && 
-			this->BO[n][y+3][x+1] && this->BO[n][y+4][x+0] && this->BO[n][y+4][x+1] && this->BO[n][y+4][x+2] && this->BO[n][y+5][x+1] && 
-			this->BO[n][y+5][x+2] && this->BO[n][y+6][x+1] && this->BO[n][y+6][x+2] && this->BO[n][y+6][x+3] && this->BO[n][y+7][x+2] && 
-			this->BO[n][y+7][x+3] && this->BO[n][y+8][x+2] && this->BO[n][y+8][x+3] && this->BO[n][y+8][x+4] && this->BO[n][y+9][x+3] && 
-			this->BO[n][y+9][x+4] && this->BO[n][y+10][x+3] && this->BO[n][y+10][x+4] && this->BO[n][y+10][x+5] && this->BO[n][y+11][x+4] && 
-			this->BO[n][y+11][x+5] && this->BO[n][y+12][x+4] && this->BO[n][y+12][x+5] && this->BO[n][y+13][x+5] && this->BO[n][y+14][x+5])
+		if (this->BO[n][y+0][x+0] && this->BO[n][y+0][x+1] && this->BO[n][y+0][x+2] && this->BO[n][y+1][x+2] && this->BO[n][y+1][x+3] && this->BO[n][y+1][x+4] && this->BO[n][y+2][x+4] && this->BO[n][y+2][x+5] && this->BO[n][y+2][x+6] && this->BO[n][y+3][x+6] && this->BO[n][y+3][x+7] && this->BO[n][y+3][x+8] && this->BO[n][y+4][x+8] && this->BO[n][y+4][x+9] && this->BO[n][y+4][x+10] && this->BO[n][y+5][x+10] && this->BO[n][y+5][x+11] && this->BO[n][y+5][x+12])
 		{
+
 			return TRUE;
 		}
 		break;
 	case CLOCK6:
-		if (this->BO[n][y+0][x+0] && this->BO[n][y+0][x+1] && this->BO[n][y+0][x+2] && this->BO[n][y+0][x+3] && this->BO[n][y+0][x+4] && 
-			this->BO[n][y+1][x+0] && this->BO[n][y+1][x+1] && this->BO[n][y+1][x+2] && this->BO[n][y+1][x+3] && this->BO[n][y+1][x+4] && 
-			this->BO[n][y+2][x+0] && this->BO[n][y+2][x+1] && this->BO[n][y+2][x+2] && this->BO[n][y+2][x+3] && this->BO[n][y+2][x+4] && 
-			this->BO[n][y+3][x+0] && this->BO[n][y+3][x+1] && this->BO[n][y+3][x+2] && this->BO[n][y+3][x+3] && this->BO[n][y+3][x+4] && 
-			this->BO[n][y+4][x+0] && this->BO[n][y+4][x+1] && this->BO[n][y+4][x+2] && this->BO[n][y+4][x+3] && this->BO[n][y+4][x+4] && 
-			this->BO[n][y+5][x+0] && this->BO[n][y+5][x+1] && this->BO[n][y+5][x+2] && this->BO[n][y+5][x+3] && this->BO[n][y+5][x+4] && 
-			this->BO[n][y+6][x+0] && this->BO[n][y+6][x+1] && this->BO[n][y+6][x+2] && this->BO[n][y+6][x+3] && this->BO[n][y+6][x+4] && 
-			this->BO[n][y+7][x+0] && this->BO[n][y+7][x+1] && this->BO[n][y+7][x+2] && this->BO[n][y+7][x+3] && this->BO[n][y+7][x+4])
+		if (this->BO[n][y+0][x+0] && this->BO[n][y+0][x+1] && this->BO[n][y+1][x+0] && this->BO[n][y+1][x+1] && this->BO[n][y+1][x+2] && this->BO[n][y+2][x+1] && this->BO[n][y+2][x+2] && this->BO[n][y+2][x+3] && this->BO[n][y+3][x+2] && this->BO[n][y+3][x+3] && this->BO[n][y+3][x+4] && this->BO[n][y+4][x+3] && this->BO[n][y+4][x+4] && this->BO[n][y+4][x+5] && this->BO[n][y+5][x+4] && this->BO[n][y+5][x+5] && this->BO[n][y+5][x+6] && this->BO[n][y+6][x+5] && this->BO[n][y+6][x+6] && this->BO[n][y+6][x+7] && this->BO[n][y+7][x+6] && this->BO[n][y+7][x+7])
 		{
 			return TRUE;
 		}
 		break;
 	case CLOCK7:
-		if (this->BO[n][y+0][x+0] && this->BO[n][y+1][x+0] && this->BO[n][y+2][x-1] && this->BO[n][y+2][x+0] && this->BO[n][y+3][x-1] && 
-			this->BO[n][y+3][x+0] && this->BO[n][y+4][x-2] && this->BO[n][y+4][x-1] && this->BO[n][y+4][x+0] && this->BO[n][y+5][x-2] && 
-			this->BO[n][y+5][x-1] && this->BO[n][y+6][x-3] && this->BO[n][y+6][x-2] && this->BO[n][y+6][x-1] && this->BO[n][y+7][x-3] && 
-			this->BO[n][y+7][x-2] && this->BO[n][y+8][x-4] && this->BO[n][y+8][x-3] && this->BO[n][y+8][x-2] && this->BO[n][y+9][x-4] && 
-			this->BO[n][y+9][x-3] && this->BO[n][y+10][x-5] && this->BO[n][y+10][x-4] && this->BO[n][y+10][x-3] && this->BO[n][y+11][x-5] && 
-			this->BO[n][y+11][x-4] && this->BO[n][y+12][x-5] && this->BO[n][y+12][x-4] && this->BO[n][y+13][x-5] && this->BO[n][y+14][x-5])
+		if (this->BO[n][y+0][x+0] && this->BO[n][y+1][x+0] && this->BO[n][y+2][x+0] && this->BO[n][y+2][x+1] && this->BO[n][y+3][x+1] && this->BO[n][y+4][x+1] && this->BO[n][y+4][x+2] && this->BO[n][y+5][x+2] && this->BO[n][y+6][x+2] && this->BO[n][y+6][x+3] && this->BO[n][y+7][x+3] && this->BO[n][y+8][x+3] && this->BO[n][y+8][x+4] && this->BO[n][y+9][x+4] && this->BO[n][y+10][x+4] && this->BO[n][y+10][x+5] && this->BO[n][y+11][x+5] && this->BO[n][y+12][x+5])
 		{
 			return TRUE;
 		}
 		break;
 	case CLOCK8:
-		if (this->BO[n][y+0][x+0] && this->BO[n][y+1][x-1] && this->BO[n][y+1][x+0] && this->BO[n][y+2][x-2] && this->BO[n][y+2][x-1] && 
-			this->BO[n][y+2][x+0] && this->BO[n][y+3][x-3] && this->BO[n][y+3][x-2] && this->BO[n][y+3][x-1] && this->BO[n][y+3][x+0] && 
-			this->BO[n][y+4][x-4] && this->BO[n][y+4][x-3] && this->BO[n][y+4][x-2] && this->BO[n][y+4][x-1] && this->BO[n][y+4][x+0] && 
-			this->BO[n][y+5][x-5] && this->BO[n][y+5][x-4] && this->BO[n][y+5][x-3] && this->BO[n][y+5][x-2] && this->BO[n][y+5][x-1] && 
-			this->BO[n][y+6][x-5] && this->BO[n][y+6][x-4] && this->BO[n][y+6][x-3] && this->BO[n][y+6][x-2] && this->BO[n][y+7][x-5] && 
-			this->BO[n][y+7][x-4] && this->BO[n][y+7][x-3] && this->BO[n][y+8][x-5] && this->BO[n][y+8][x-4] && this->BO[n][y+9][x-5])
+		if (this->BO[n][y+0][x+0] && this->BO[n][y+0][x+1] && this->BO[n][y+0][x+2] && this->BO[n][y+1][x+0] && this->BO[n][y+1][x+1] && this->BO[n][y+1][x+2] && this->BO[n][y+2][x+0] && this->BO[n][y+2][x+1] && this->BO[n][y+2][x+2] && this->BO[n][y+3][x+0] && this->BO[n][y+3][x+1] && this->BO[n][y+3][x+2] && this->BO[n][y+4][x+0] && this->BO[n][y+4][x+1] && this->BO[n][y+4][x+2] && this->BO[n][y+5][x+0] && this->BO[n][y+5][x+1] && this->BO[n][y+5][x+2] && this->BO[n][y+6][x+0] && this->BO[n][y+6][x+1] && this->BO[n][y+6][x+2] && this->BO[n][y+7][x+0] && this->BO[n][y+7][x+1] && this->BO[n][y+7][x+2] && this->BO[n][y+8][x+0] && this->BO[n][y+8][x+1] && this->BO[n][y+8][x+2])
 		{
 			return TRUE;
 		}
 		break;
 	case CLOCK9:
-		if (this->BO[n][y+0][x-7] && this->BO[n][y+0][x-6] && this->BO[n][y+0][x-5] && this->BO[n][y+0][x-4] && this->BO[n][y+0][x-3] && 
-			this->BO[n][y+0][x-2] && this->BO[n][y+0][x-1] && this->BO[n][y+0][x+0] && this->BO[n][y+1][x-7] && this->BO[n][y+1][x-6] && 
-			this->BO[n][y+1][x-5] && this->BO[n][y+1][x-4] && this->BO[n][y+1][x-3] && this->BO[n][y+1][x-2] && this->BO[n][y+1][x-1] && 
-			this->BO[n][y+1][x+0] && this->BO[n][y+2][x-7] && this->BO[n][y+2][x-6] && this->BO[n][y+2][x-5] && this->BO[n][y+2][x-4] && 
-			this->BO[n][y+2][x-3] && this->BO[n][y+2][x-2] && this->BO[n][y+2][x-1] && this->BO[n][y+2][x+0] && this->BO[n][y+3][x-7] && 
-			this->BO[n][y+3][x-6] && this->BO[n][y+3][x-5] && this->BO[n][y+3][x-4] && this->BO[n][y+3][x-3] && this->BO[n][y+3][x-2] && 
-			this->BO[n][y+3][x-1] && this->BO[n][y+3][x+0] && this->BO[n][y+4][x-7] && this->BO[n][y+4][x-6] && this->BO[n][y+4][x-5] && 
-			this->BO[n][y+4][x-4] && this->BO[n][y+4][x-3] && this->BO[n][y+4][x-2] && this->BO[n][y+4][x-1] && this->BO[n][y+4][x+0])
+		if (this->BO[n][y+0][x+0] && this->BO[n][y+1][x+0] && this->BO[n][y+2][x-1] && this->BO[n][y+2][x+0] && this->BO[n][y+3][x-1] && this->BO[n][y+4][x-2] && this->BO[n][y+4][x-1] && this->BO[n][y+5][x-2] && this->BO[n][y+6][x-3] && this->BO[n][y+6][x-2] && this->BO[n][y+7][x-3] && this->BO[n][y+8][x-4] && this->BO[n][y+8][x-3] && this->BO[n][y+9][x-4] && this->BO[n][y+10][x-5] && this->BO[n][y+10][x-4] && this->BO[n][y+11][x-5] && this->BO[n][y+12][x-5])
 		{
 			return TRUE;
 		}
 		break;
 	case CLOCK10:
-		if (this->BO[n][y-9][x-5] && this->BO[n][y-8][x-5] && this->BO[n][y-8][x-4] && this->BO[n][y-7][x-5] && this->BO[n][y-7][x-4] && 
-			this->BO[n][y-7][x-3] && this->BO[n][y-6][x-5] && this->BO[n][y-6][x-4] && this->BO[n][y-6][x-3] && this->BO[n][y-6][x-2] && 
-			this->BO[n][y-5][x-5] && this->BO[n][y-5][x-4] && this->BO[n][y-5][x-3] && this->BO[n][y-5][x-2] && this->BO[n][y-5][x-1] && 
-			this->BO[n][y-4][x-4] && this->BO[n][y-4][x-3] && this->BO[n][y-4][x-2] && this->BO[n][y-4][x-1] && this->BO[n][y-4][x+0] && 
-			this->BO[n][y-3][x-3] && this->BO[n][y-3][x-2] && this->BO[n][y-3][x-1] && this->BO[n][y-3][x+0] && this->BO[n][y-2][x-2] && 
-			this->BO[n][y-2][x-1] && this->BO[n][y-2][x+0] && this->BO[n][y-1][x-1] && this->BO[n][y-1][x+0] && this->BO[n][y+0][x+0])
+		if (this->BO[n][y+0][x-1] && this->BO[n][y+0][x+0] && this->BO[n][y+1][x-2] && this->BO[n][y+1][x-1] && this->BO[n][y+1][x+0] && this->BO[n][y+2][x-3] && this->BO[n][y+2][x-2] && this->BO[n][y+2][x-1] && this->BO[n][y+3][x-4] && this->BO[n][y+3][x-3] && this->BO[n][y+3][x-2] && this->BO[n][y+4][x-5] && this->BO[n][y+4][x-4] && this->BO[n][y+4][x-3] && this->BO[n][y+5][x-6] && this->BO[n][y+5][x-5] && this->BO[n][y+5][x-4] && this->BO[n][y+6][x-7] && this->BO[n][y+6][x-6] && this->BO[n][y+6][x-5] && this->BO[n][y+7][x-7] && this->BO[n][y+7][x-6])
 		{
 			return TRUE;
 		}
 		break;
 	case CLOCK11:
-		if (this->BO[n][y-14][x-5] && this->BO[n][y-13][x-5] && this->BO[n][y-12][x-5] && this->BO[n][y-12][x-4] && this->BO[n][y-11][x-5] &&
-			this->BO[n][y-11][x-4] && this->BO[n][y-10][x-5] && this->BO[n][y-10][x-4] && this->BO[n][y-10][x-3] && this->BO[n][y-9][x-4] &&
-			this->BO[n][y-9][x-3] && this->BO[n][y-8][x-4] && this->BO[n][y-8][x-3] && this->BO[n][y-8][x-2] && this->BO[n][y-7][x-3] && 
-			this->BO[n][y-7][x-2] && this->BO[n][y-6][x-3] && this->BO[n][y-6][x-2] && this->BO[n][y-6][x-1] && this->BO[n][y-5][x-2] && 
-			this->BO[n][y-5][x-1] && this->BO[n][y-4][x-2] && this->BO[n][y-4][x-1] && this->BO[n][y-4][x+0] && this->BO[n][y-3][x-1] && 
-			this->BO[n][y-3][x+0] && this->BO[n][y-2][x-1] && this->BO[n][y-2][x+0] && this->BO[n][y-1][x+0] && this->BO[n][y+0][x+0])
+		if (this->BO[n][y+0][x-2] && this->BO[n][y+0][x-1] && this->BO[n][y+0][x+0] && this->BO[n][y+1][x-4] && this->BO[n][y+1][x-3] && this->BO[n][y+1][x-2] && this->BO[n][y+2][x-6] && this->BO[n][y+2][x-5] && this->BO[n][y+2][x-4] && this->BO[n][y+3][x-8] && this->BO[n][y+3][x-7] && this->BO[n][y+3][x-6] && this->BO[n][y+4][x-10] && this->BO[n][y+4][x-9] && this->BO[n][y+4][x-8] && this->BO[n][y+5][x-12] && this->BO[n][y+5][x-11] && this->BO[n][y+5][x-10])
+		{
+			return TRUE;
+		}
+		break;
+	case CLOCK12:
+		if (this->BO[n][y+0][x-8] && this->BO[n][y+0][x-7] && this->BO[n][y+0][x-6] && this->BO[n][y+0][x-5] && this->BO[n][y+0][x-4] && this->BO[n][y+0][x-3] && this->BO[n][y+0][x-2] && this->BO[n][y+0][x-1] && this->BO[n][y+0][x+0] && this->BO[n][y+1][x-8] && this->BO[n][y+1][x-7] && this->BO[n][y+1][x-6] && this->BO[n][y+1][x-5] && this->BO[n][y+1][x-4] && this->BO[n][y+1][x-3] && this->BO[n][y+1][x-2] && this->BO[n][y+1][x-1] && this->BO[n][y+1][x+0] && this->BO[n][y+2][x-8] && this->BO[n][y+2][x-7] && this->BO[n][y+2][x-6] && this->BO[n][y+2][x-5] && this->BO[n][y+2][x-4] && this->BO[n][y+2][x-3] && this->BO[n][y+2][x-2] && this->BO[n][y+2][x-1] && this->BO[n][y+2][x+0])
+		{
+			return TRUE;
+		}
+		break;
+	case CLOCK13:
+		if (this->BO[n][y-5][x-12] && this->BO[n][y-5][x-11] && this->BO[n][y-5][x-10] && this->BO[n][y-4][x-10] && this->BO[n][y-4][x-9] && this->BO[n][y-4][x-8] && this->BO[n][y-3][x-8] && this->BO[n][y-3][x-7] && this->BO[n][y-3][x-6] && this->BO[n][y-2][x-6] && this->BO[n][y-2][x-5] && this->BO[n][y-2][x-4] && this->BO[n][y-1][x-4] && this->BO[n][y-1][x-3] && this->BO[n][y-1][x-2] && this->BO[n][y+0][x-2] && this->BO[n][y+0][x-1] && this->BO[n][y+0][x+0])
+		{
+			return TRUE;
+		}
+		break;
+	case CLOCK14:
+		if (this->BO[n][y-7][x-7] && this->BO[n][y-7][x-6] && this->BO[n][y-6][x-7] && this->BO[n][y-6][x-6] && this->BO[n][y-6][x-5] && this->BO[n][y-5][x-6] && this->BO[n][y-5][x-5] && this->BO[n][y-5][x-4] && this->BO[n][y-4][x-5] && this->BO[n][y-4][x-4] && this->BO[n][y-4][x-3] && this->BO[n][y-3][x-4] && this->BO[n][y-3][x-3] && this->BO[n][y-3][x-2] && this->BO[n][y-2][x-3] && this->BO[n][y-2][x-2] && this->BO[n][y-2][x-1] && this->BO[n][y-1][x-2] && this->BO[n][y-1][x-1] && this->BO[n][y-1][x+0] && this->BO[n][y+0][x-1] && this->BO[n][y+0][x+0])
+		{
+			return TRUE;
+		}
+		break;
+	case CLOCK15:
+		if (this->BO[n][y-12][x-5] && this->BO[n][y-11][x-5] && this->BO[n][y-10][x-5] && this->BO[n][y-10][x-4] && this->BO[n][y-9][x-4] && this->BO[n][y-8][x-4] && this->BO[n][y-8][x-3] && this->BO[n][y-7][x-3] && this->BO[n][y-6][x-3] && this->BO[n][y-6][x-2] && this->BO[n][y-5][x-2] && this->BO[n][y-4][x-2] && this->BO[n][y-4][x-1] && this->BO[n][y-3][x-1] && this->BO[n][y-2][x-1] && this->BO[n][y-2][x+0] && this->BO[n][y-1][x+0] && this->BO[n][y+0][x+0])
 		{
 			return TRUE;
 		}
@@ -603,52 +566,68 @@ BOOL DealPic::InZoneRich(int n,int iclock,int sx,int xy,int dx,int dy,OUT int *o
 				switch (iclock)
 				{
 				case CLOCK0:
-					*odx = x+4;
-					*ody = y-7;
+					*odx = x+2;
+					*ody = y-8;
 					break;
 				case CLOCK1:
 					*odx = x+5;
-					*ody = y-14;
+					*ody = y-12;
 					break;
 				case CLOCK2:
-					*odx = x+5;
-					*ody = y-9;
+					*odx = x+8;
+					*ody = y-8;
 					break;
 				case CLOCK3:
-					*odx = x+7;
-					*ody = y-4;
+					*odx = x+12;
+					*ody = y-5;
 					break;
 				case CLOCK4:
-					*odx = x+5;
-					*ody = y+9;
+					*odx = x+7;
+					*ody = y-2;
 					break;
 				case CLOCK5:
-					*odx = x+5;
-					*ody = y+14;
+					*odx = x+12;
+					*ody = y+5;
 					break;
 				case CLOCK6:
-					*odx = x+4;
-					*ody = y+7;
+					*odx = x+8;
+					*ody = y+8;
 					break;
 				case CLOCK7:
-					*odx = x-5;
-					*ody = y+14;
+					*odx = x+5;
+					*ody = y+12;
 					break;
 				case CLOCK8:
-					*odx = x-5;
-					*ody = y+9;
+					*odx = x+2;
+					*ody = y+8;
 					break;
 				case CLOCK9:
-					*odx = x-7;
-					*ody = y+4;
+					*odx = x-5;
+					*ody = y+12;
 					break;
 				case CLOCK10:
-					*odx = x-5;
-					*ody = y-9;
+					*odx = x-8;
+					*ody = y+8;
 					break;
 				case CLOCK11:
+					*odx = x-12;
+					*ody = y+5;
+					break;
+				case CLOCK12:
+					*odx = x-8;
+					*ody = y+2;
+					break;
+				case CLOCK13:
+					*odx = x-12;
+					*ody = y-5;
+					break;
+				case CLOCK14:
+					*odx = x-8;
+					*ody = y-8;
+					break;
+				case CLOCK15:
 					*odx = x-5;
-					*ody = y-14;
+					*ody = y-12;
 					break;
 				default:
 					break;
