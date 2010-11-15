@@ -33,6 +33,7 @@ static char THIS_FILE[]=__FILE__;
 #define  CLOCK15 15
 
 
+
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
@@ -360,7 +361,60 @@ Default:
 
 	return iRet;
 }
-
+//////////////////////////////////////////////////////////////////////////
+//No 表示第几个比划 Gesture 表示比划的方向 Tilt 表示当前斜率既 -1 表示左倾斜，0 表示正常 1 表示有倾斜
+//功能 用递归来实现比划规律的判断 根据事先定义好的比划顺序 模糊查找 数字
+//////////////////////////////////////////////////////////////////////////
+BOOL DealPic::InReaturn(int n, Gestures *G,int Tilt,int sx,int sy,int dx,int dy)
+{
+	int osx = 0;
+	int osy = 0;
+	int odx = 0;
+	int ody = 0;
+	if (G == NULL || Tilt < -1 || Tilt > 1)
+	{
+		return false;
+	}
+	//((*G).iGestures+Tilt-1+16)%16
+	//上面的表达式后面+16是防止出现 0 然后-1 出现负数的情况 真是情况应该是15 所以 +上16在取模 应该是15 后面取模15也是为了防止15+1
+	//的情况 和 0的情况雷同
+	if (InZoneRich(n, ((*G).iGestures+Tilt-1+16)%16, sx, sy, dx, dy, &osx, &osy, &odx, &ody))
+	{
+		if ((*G).pnext == NULL)
+		{
+			return TRUE;
+		}
+		else if (InReaturn(n, (*G).pnext, Tilt, osx, osy, odx, ody))
+		{
+			return TRUE;
+		}
+	}
+	
+	if (InZoneRich(n, ((*G).iGestures+Tilt+16)%16, sx, sy, dx, dy, &osx, &osy, &odx, &ody))
+	{
+		if ((*G).pnext == NULL)
+		{
+			return TRUE;
+		}
+		else if (InReaturn(n, (*G).pnext, Tilt, osx, osy, odx, ody))
+		{
+			return TRUE;
+		}
+	}
+	
+	if (InZoneRich(n, ((*G).iGestures+Tilt+1+16)%16, sx, sy, dx, dy, &osx, &osy, &odx, &ody))
+	{
+		if ((*G).pnext == NULL)
+		{
+			return TRUE;
+		}
+		else if (InReaturn(n, (*G).pnext, Tilt, osx, osy, odx, ody))
+		{
+			return TRUE;
+		}		
+	}
+	return FALSE;
+}
 //////////////////////////////////////////////////////////////////////////
 //参数n表示 要比较的第几个数是不是0
 //功能：判断制定的图片是不是0
@@ -372,10 +426,22 @@ BOOL DealPic::IsZero(int n)
 	int odx = 0;
 	int ody = 0;
 
-	if (InZoneRich(n,CLOCK7,8,0,23,17,&osx,&osy,&odx,&ody))
-	{
-		
-	}
+	Gestures G[10] = {0};
+	G[0].iGestures = 12;
+	G[0].pnext = &G[1];
+	G[1].iGestures = 12;
+	G[1].pnext = &G[2];
+	G[2].iGestures = 8;
+	G[2].pnext = &G[3];
+	G[3].iGestures = 8;
+	G[3].pnext = &G[4];
+	G[4].iGestures = 4;
+	G[4].pnext = &G[5];
+	G[5].iGestures = 0;
+	G[5].pnext = &G[6];
+	G[6].iGestures = 12;
+	G[6].pnext = NULL;
+
 	return true;
 }
 
@@ -551,10 +617,10 @@ Default:
 //sx xy 原坐标 dx dy 目标坐标 这两个点形成一个矩形区域 
 //n 用来判断第几个 数字阵列 
 //////////////////////////////////////////////////////////////////////////
-BOOL DealPic::InZoneRich(int n,int iclock,int sx,int xy,int dx,int dy,OUT int *osx,OUT int *osy, OUT int *odx,OUT int *ody)
+BOOL DealPic::InZoneRich(int n,int iclock,int sx,int sy,int dx,int dy,OUT int *osx,OUT int *osy, OUT int *odx,OUT int *ody)
 {
 	int x = sx;
-	int y = xy;
+	int y = sy;
 	while (y <= dy )
 	{
 		while (x <= dx)
