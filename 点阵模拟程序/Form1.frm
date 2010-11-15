@@ -4,7 +4,7 @@ Begin VB.Form Form1
    Caption         =   "点阵模拟程序"
    ClientHeight    =   12135
    ClientLeft      =   165
-   ClientTop       =   825
+   ClientTop       =   525
    ClientWidth     =   11430
    FillColor       =   &H000000FF&
    ForeColor       =   &H000000FF&
@@ -40,6 +40,7 @@ Begin VB.Form Form1
    End
    Begin VB.Menu Popmenu 
       Caption         =   "PopMenu"
+      Visible         =   0   'False
       Begin VB.Menu 生成代码 
          Caption         =   "生成代码"
       End
@@ -119,6 +120,7 @@ End If
 
 If Button = 2 Then
 Indexshowpt = Index
+Pt(Index).SetFocus
 PopupMenu Popmenu
 
 End If
