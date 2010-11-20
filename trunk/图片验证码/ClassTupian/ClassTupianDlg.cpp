@@ -73,6 +73,7 @@ void CClassTupianDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CClassTupianDlg)
+	DDX_Control(pDX, IDC_EDIT2, m_Pointlist);
 	DDX_Text(pDX, IDC_EDIT1, m_edit);
 	//}}AFX_DATA_MAP
 }
@@ -119,7 +120,6 @@ BOOL CClassTupianDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 	
 	// TODO: Add extra initialization here
-	
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -257,6 +257,7 @@ void CClassTupianDlg::OnButton2()
 	// TODO: Add your control notification handler code here
 	UpdateData();
 	Dp.ShowNum(atoi(m_edit), this->m_hWnd);
+
 }
 
 void CClassTupianDlg::OnButton3() 
