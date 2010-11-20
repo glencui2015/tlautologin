@@ -6,6 +6,21 @@
 --------------------Configuration: ClassTupian - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPBF.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/ClassTupian.pdb" /debug /machine:I386 /out:"Debug/ClassTupian.exe" /pdbtype:sept 
+".\Debug\ClassTupian.obj"
+".\Debug\ClassTupianDlg.obj"
+".\Debug\DealPic.obj"
+".\Debug\StdAfx.obj"
+".\Debug\ClassTupian.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPBF.tmp"
+<h3>Output Window</h3>
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/ClassTupian.bsc"  ".\Debug\StdAfx.sbr" ".\Debug\ClassTupian.sbr" ".\Debug\ClassTupianDlg.sbr" ".\Debug\DealPic.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
 
 
 

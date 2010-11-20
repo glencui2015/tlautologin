@@ -48,6 +48,8 @@ public:
 	BOOL ShowError(char *cs);
 	BOOL ShowError(CString cs);
 	BOOL ShowGesturePath(int n, Gestures *G);
+	void ClearNum(int *osx,int *osy,int *odx,int *ody);
+	void InMiddle(int min,int max,int *Num);
 };
 
 #endif // !defined(AFX_DEALPIC_H__D4520936_3823_411E_B86F_CCDC9639B760__INCLUDED_)
