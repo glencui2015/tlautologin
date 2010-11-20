@@ -5,7 +5,7 @@
 #include "stdafx.h"
 #include "ClassTupian.h"
 #include "DealPic.h"
-
+#include <windows.h>
 #ifdef _DEBUG
 #undef THIS_FILE
 static char THIS_FILE[]=__FILE__;
@@ -32,6 +32,8 @@ static char THIS_FILE[]=__FILE__;
 #define  CLOCK14 14
 #define  CLOCK15 15
 
+#define  RANGEX   2
+#define  RANGEY   2
 //#define  DEBUG
 
 
@@ -136,7 +138,7 @@ BOOL DealPic::ShowNum(int n, HWND hWnd)
 BOOL DealPic::DealNum()
 {
 	this->DealFirst();
-	this->DealOne(1);
+	this->DealOne(3);
 	return true;
 }
 //////////////////////////////////////////////////////////////////////////
@@ -394,7 +396,7 @@ CString cs;
 				{
 					(*G).x = x;
 					(*G).y = y;
-					(*G).Gesture = ((*G).iGestures-1+16)%16;
+					G->Gesture = (G->iGestures-1+16)%16;
 					return TRUE;
 				}
 
@@ -402,7 +404,7 @@ CString cs;
 				{
 					(*G).x = x;
 					(*G).y = y;
-					(*G).Gesture = ((*G).iGestures-1+16)%16;
+					G->Gesture = (G->iGestures-1+16)%16;
 					return TRUE;
 				}
 			}
@@ -412,14 +414,14 @@ CString cs;
 				{
 					(*G).x = x;
 					(*G).y = y;
-					(*G).Gesture =  ((*G).iGestures+0+16)%16;
+					G->Gesture=  (G->iGestures+0+16)%16;
 					return TRUE;
 				}
 				else if (InReaturn(n, (*G).pnext, 0, osx, osy, odx, ody))
 				{
 					(*G).x = x;
 					(*G).y = y;
-					(*G).Gesture =  ((*G).iGestures+0+16)%16;
+					G->Gesture = (G->iGestures+0+16)%16;
 					return TRUE;
 				}
 			}
@@ -429,20 +431,20 @@ CString cs;
 				{
 					(*G).x = x;
 					(*G).y = y;
-					(*G).Gesture =  ((*G).iGestures+1+16)%16;
+					G->Gesture = (G->iGestures+1+16)%16;
 					return TRUE;
 				}
 				else if (InReaturn(n, (*G).pnext, 1, osx, osy, odx, ody))
 				{
 					(*G).x = x;
 					(*G).y = y;
-					(*G).Gesture =  ((*G).iGestures+1+16)%16;
+				G->Gesture =  (G->iGestures+1+16)%16;
 					return TRUE;
 				}		
 			}
 			x++;
 		}
-		x=0;
+		x=sx;
 		y++;
 	}
 	return FALSE;
@@ -471,6 +473,7 @@ BOOL DealPic::InReaturn(int n, Gestures *G,int Tilt,int sx,int sy,int dx,int dy)
 	{
 		while (x <= dx)
 		{
+
 			if (IsLine(n, ((*G).iGestures + Tilt -1+16)%16, x , y , &osx, &osy, &odx, &ody))
 			{
 				
@@ -478,15 +481,15 @@ BOOL DealPic::InReaturn(int n, Gestures *G,int Tilt,int sx,int sy,int dx,int dy)
 				{
 					(*G).x = x;
 					(*G).y = y;
-					(*G).Gesture = ((*G).iGestures + Tilt -1+16)%16;
+					G->Gesture =  (G->iGestures + Tilt -1+16)%16;
 					return TRUE;
 				}
 				
-				else if (InReaturn(n, (*G).pnext, -1, osx, osy, odx, ody))
+				else if (InReaturn(n, (*G).pnext, Tilt, osx, osy, odx, ody))
 				{
 					(*G).x = x;
 					(*G).y = y;
-					(*G).Gesture = ((*G).iGestures + Tilt -1+16)%16;
+					(*G).Gesture =   (G->iGestures + Tilt -1+16)%16;
 					return TRUE;
 				}
 			}
@@ -497,14 +500,14 @@ BOOL DealPic::InReaturn(int n, Gestures *G,int Tilt,int sx,int sy,int dx,int dy)
 				{
 					(*G).x = x;
 					(*G).y = y;
-					(*G).Gesture = ((*G).iGestures + Tilt + 0 +16)%16;
+					(*G).Gesture =   (G->iGestures + Tilt + 0 +16)%16;
 					return TRUE;
 				}
-				else if (InReaturn(n, (*G).pnext, 0, osx, osy, odx, ody))
+				else if (InReaturn(n, (*G).pnext, Tilt, osx, osy, odx, ody))
 				{
 					(*G).x = x;
 					(*G).y = y;
-					(*G).Gesture = ((*G).iGestures + Tilt + 0 +16)%16;
+					(*G).Gesture =   (G->iGestures + Tilt + 0 +16)%16;
 					return TRUE;
 				}
 			}
@@ -514,20 +517,20 @@ BOOL DealPic::InReaturn(int n, Gestures *G,int Tilt,int sx,int sy,int dx,int dy)
 				{
 					(*G).x = x;
 					(*G).y = y;
-					(*G).Gesture = ((*G).iGestures+Tilt + 1 +16)%16;
+					(*G).Gesture =   (G->iGestures+Tilt + 1 +16)%16;
 					return TRUE;
 				}
-				else if (InReaturn(n, (*G).pnext, 1, osx, osy, odx, ody))
+				else if (InReaturn(n, (*G).pnext, Tilt, osx, osy, odx, ody))
 				{
 					(*G).x = x;
 					(*G).y = y;
-					(*G).Gesture = ((*G).iGestures+Tilt + 1 +16)%16;
+					(*G).Gesture =   (G->iGestures+Tilt + 1 +16)%16;
 					return TRUE; 
 				}		
 			}
 			x++;
 		}
-		x=0;
+		x=sx;
 		y++;
 	}
 	return FALSE;
@@ -546,19 +549,19 @@ BOOL DealPic::IsZero(int n)
 	Gestures G[10] = {0};
 	G[0].iGestures = 4;
 	G[0].pnext = &G[1];
-	G[1].iGestures = 6;
+	G[1].iGestures = 7;
 	G[1].pnext = &G[2];
 	G[2].iGestures = 8;
 	G[2].pnext = &G[3];
-	G[3].iGestures = 10;
+	G[3].iGestures = 9;
 	G[3].pnext = &G[4];
 	G[4].iGestures = 12;
 	G[4].pnext = &G[5];
-	G[5].iGestures = 14;
+	G[5].iGestures = 15;
 	G[5].pnext = &G[6];
 	G[6].iGestures = 0;
 	G[6].pnext = &G[7];
-	G[7].iGestures = 2;
+	G[7].iGestures = 1;
 	G[7].pnext = NULL;
 
 
@@ -594,22 +597,44 @@ BOOL DealPic::IsOne(int n)
 
 BOOL DealPic::IsTwo(int n)
 {
-	return true;
+	return FALSE;
 }
 
 BOOL DealPic::IsThree(int n)
 {
-	return true;
+	return FALSE;
 }
 
 BOOL DealPic::IsFour(int n)
 {
-	return true;
+	return FALSE;
 }
 
 BOOL DealPic::IsFive(int n)
 {
-	return true;
+	int osx = 13;
+	int osy = 0;
+	int odx = 31;
+	int ody = 16;
+	
+	Gestures G[10] = {0};
+	G[0].iGestures = 12;
+	G[0].pnext = &G[1];
+	G[1].iGestures = 8;
+	G[1].pnext = &G[2];
+	G[2].iGestures = 4;
+	G[2].pnext = &G[3];
+	G[3].iGestures = 8;
+	G[3].pnext = &G[4];
+	G[4].iGestures = 12;
+	G[4].pnext = NULL;
+	
+	if (this->InReaturnOver(n,G,osx,osy,odx,ody))
+	{
+		this->ShowGesturePath(5,&G[0]);
+		return TRUE;
+	}
+	return FALSE;
 }
 
 BOOL DealPic::IsSix(int n)
@@ -644,17 +669,41 @@ BOOL DealPic::IsSix(int n)
 
 BOOL DealPic::IsSeven(int n)
 {
-	return true;
+	return FALSE;
 }
 
 BOOL DealPic::IsEight(int n)
 {
-	return true;
+	return FALSE;
 }
 
 BOOL DealPic::IsNine(int n)
 {
-	return true;
+	int osx = 7;
+	int osy = 18;
+	int odx = 24;
+	int ody = 35;
+	
+	Gestures G[10] = {0};
+	G[0].iGestures = 4;
+	G[0].pnext = &G[1];
+	G[1].iGestures = 0;
+	G[1].pnext = &G[2];
+	G[2].iGestures = 0;
+	G[2].pnext = &G[3];
+	G[3].iGestures = 12;
+	G[3].pnext = &G[4];
+	G[4].iGestures = 8;
+	G[4].pnext = &G[5];
+	G[5].iGestures = 4;
+	G[5].pnext = NULL;
+
+	if (this->InReaturnOver(n,G,osx,osy,odx,ody))
+	{
+		this->ShowGesturePath(9,&G[0]);
+		return TRUE;
+	}
+	return FALSE;
 }
 //////////////////////////////////////////////////////////////////////////
 //功能：判断 制定坐标的周围有没有iclock制定的倾斜的直线 宽度现在默认是3 并判断终点坐标是否越界 
@@ -677,10 +726,11 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		if (this->BO[n][y-8][x+0] && this->BO[n][y-8][x+1] && this->BO[n][y-8][x+2] && this->BO[n][y-7][x+0] && this->BO[n][y-7][x+1] && this->BO[n][y-7][x+2] && this->BO[n][y-6][x+0] && this->BO[n][y-6][x+1] && this->BO[n][y-6][x+2] && this->BO[n][y-5][x+0] && this->BO[n][y-5][x+1] && this->BO[n][y-5][x+2] && this->BO[n][y-4][x+0] && this->BO[n][y-4][x+1] && this->BO[n][y-4][x+2] && this->BO[n][y-3][x+0] && this->BO[n][y-3][x+1] && this->BO[n][y-3][x+2] && this->BO[n][y-2][x+0] && this->BO[n][y-2][x+1] && this->BO[n][y-2][x+2] && this->BO[n][y-1][x+0] && this->BO[n][y-1][x+1] && this->BO[n][y-1][x+2] && this->BO[n][y+0][x+0] && this->BO[n][y+0][x+1] && this->BO[n][y+0][x+2])
 		{
 			this->ShowError(cs);
-			*osx = x+2-3;
-			*osy = y-8-3;
-			*odx = x+2+3;
-			*ody = y-8+3;
+			*osx = x+2-RANGEX;
+			*osy = y-8-RANGEY;
+			*odx = x+2+RANGEX;
+			*ody = y-8+RANGEY;
+			this->ClearNum(osx,osy,odx,ody);
 			if (-2 < x && x < 30 && 8 < y && y  < 44)
 			{
 				return TRUE;
@@ -691,10 +741,11 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		if (this->BO[n][y-12][x+5] && this->BO[n][y-11][x+5] && this->BO[n][y-10][x+4] && this->BO[n][y-10][x+5] && this->BO[n][y-9][x+4] && this->BO[n][y-8][x+3] && this->BO[n][y-8][x+4] && this->BO[n][y-7][x+3] && this->BO[n][y-6][x+2] && this->BO[n][y-6][x+3] && this->BO[n][y-5][x+2] && this->BO[n][y-4][x+1] && this->BO[n][y-4][x+2] && this->BO[n][y-3][x+1] && this->BO[n][y-2][x+0] && this->BO[n][y-2][x+1] && this->BO[n][y-1][x+0] && this->BO[n][y+0][x+0])
 		{
 			this->ShowError(cs);
-			*osx = x+5-3;
-			*osy = y-12-3;
-			*odx = x+5+3;
-			*ody = y-12+3;
+			*osx = x+5-RANGEX;
+			*osy = y-12-RANGEY;
+			*odx = x+5+RANGEX;
+			*ody = y-12+RANGEY;
+			this->ClearNum(osx,osy,odx,ody);
 			if (-5 < x && x < 27 && 12 < y && y < 48)
 			{
 				return TRUE;
@@ -705,10 +756,11 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		if (this->BO[n][y-8][x+7] && this->BO[n][y-8][x+8] && this->BO[n][y-7][x+6] && this->BO[n][y-7][x+7] && this->BO[n][y-7][x+8] && this->BO[n][y-6][x+5] && this->BO[n][y-6][x+6] && this->BO[n][y-6][x+7] && this->BO[n][y-5][x+4] && this->BO[n][y-5][x+5] && this->BO[n][y-5][x+6] && this->BO[n][y-4][x+3] && this->BO[n][y-4][x+4] && this->BO[n][y-4][x+5] && this->BO[n][y-3][x+2] && this->BO[n][y-3][x+3] && this->BO[n][y-3][x+4] && this->BO[n][y-2][x+1] && this->BO[n][y-2][x+2] && this->BO[n][y-2][x+3] && this->BO[n][y-1][x+0] && this->BO[n][y-1][x+1] && this->BO[n][y-1][x+2] && this->BO[n][y+0][x+0] && this->BO[n][y+0][x+1])
 		{
 			this->ShowError(cs);
-			*osx = x+8-3;
-			*osy = x-8-3;
-			*odx = x+8+3;
-			*ody = y-8+3;
+			*osx = x+8-RANGEX;
+			*osy = x-8-RANGEY;
+			*odx = x+8+RANGEX;
+			*ody = y-8+RANGEY;
+			this->ClearNum(osx,osy,odx,ody);
 			if (-8 < x && x < 24 && 8 < y && y < 44)
 			{
 				return TRUE;
@@ -719,10 +771,11 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		if (this->BO[n][y-5][x+10] && this->BO[n][y-5][x+11] && this->BO[n][y-5][x+12] && this->BO[n][y-4][x+8] && this->BO[n][y-4][x+9] && this->BO[n][y-4][x+10] && this->BO[n][y-3][x+6] && this->BO[n][y-3][x+7] && this->BO[n][y-3][x+8] && this->BO[n][y-2][x+4] && this->BO[n][y-2][x+5] && this->BO[n][y-2][x+6] && this->BO[n][y-1][x+2] && this->BO[n][y-1][x+3] && this->BO[n][y-1][x+4] && this->BO[n][y+0][x+0] && this->BO[n][y+0][x+1] && this->BO[n][y+0][x+2])
 		{
 			this->ShowError(cs);
-			*osx = x+12-3;
-			*osy = y-5-3;
-			*odx = x+12+3;
-			*ody = y-5+3;
+			*osx = x+12-RANGEX;
+			*osy = y-5-RANGEY;
+			*odx = x+12+RANGEX;
+			*ody = y-5+RANGEY;
+			this->ClearNum(osx,osy,odx,ody);
 			if (-12 < x && x < 20 && 5 < y && y < 41)
 			{
 				return TRUE;
@@ -733,10 +786,11 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		if (this->BO[n][y-2][x+0] && this->BO[n][y-2][x+1] && this->BO[n][y-2][x+2] && this->BO[n][y-2][x+3] && this->BO[n][y-2][x+4] && this->BO[n][y-2][x+5] && this->BO[n][y-2][x+6] && this->BO[n][y-2][x+7] && this->BO[n][y-1][x+0] && this->BO[n][y-1][x+1] && this->BO[n][y-1][x+2] && this->BO[n][y-1][x+3] && this->BO[n][y-1][x+4] && this->BO[n][y-1][x+5] && this->BO[n][y-1][x+6] && this->BO[n][y-1][x+7] && this->BO[n][y+0][x+0] && this->BO[n][y+0][x+1] && this->BO[n][y+0][x+2] && this->BO[n][y+0][x+3] && this->BO[n][y+0][x+4] && this->BO[n][y+0][x+5] && this->BO[n][y+0][x+6] && this->BO[n][y+0][x+7])
 		{
 			this->ShowError(cs);
-			*osx = x+7-3;
-			*osy = y-2-3;
-			*odx = x+7+3;
-			*ody = y-2+3;
+			*osx = x+7-RANGEX;
+			*osy = y-2-RANGEY;
+			*odx = x+7+RANGEX;
+			*ody = y-2+RANGEY;
+			this->ClearNum(osx,osy,odx,ody);
 			if (-7 < x && x < 25 && 2 < y && y < 38)
 			{
 				return TRUE;
@@ -747,10 +801,11 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		if (this->BO[n][y+0][x+0] && this->BO[n][y+0][x+1] && this->BO[n][y+0][x+2] && this->BO[n][y+1][x+2] && this->BO[n][y+1][x+3] && this->BO[n][y+1][x+4] && this->BO[n][y+2][x+4] && this->BO[n][y+2][x+5] && this->BO[n][y+2][x+6] && this->BO[n][y+3][x+6] && this->BO[n][y+3][x+7] && this->BO[n][y+3][x+8] && this->BO[n][y+4][x+8] && this->BO[n][y+4][x+9] && this->BO[n][y+4][x+10] && this->BO[n][y+5][x+10] && this->BO[n][y+5][x+11] && this->BO[n][y+5][x+12])
 		{
 			this->ShowError(cs);
-			*osx = x+12-3;
-			*osy = y+5-3;
-			*odx = x+12+3;
-			*ody = y+5+3;
+			*osx = x+12-RANGEX;
+			*osy = y+5-RANGEY;
+			*odx = x+12+RANGEX;
+			*ody = y+5+RANGEY;
+			this->ClearNum(osx,osy,odx,ody);
 			if (-12 < x && x < 20 && -5 < y && y < 31)
 			{
 				return TRUE;
@@ -761,10 +816,11 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		if (this->BO[n][y+0][x+0] && this->BO[n][y+0][x+1] && this->BO[n][y+1][x+0] && this->BO[n][y+1][x+1] && this->BO[n][y+1][x+2] && this->BO[n][y+2][x+1] && this->BO[n][y+2][x+2] && this->BO[n][y+2][x+3] && this->BO[n][y+3][x+2] && this->BO[n][y+3][x+3] && this->BO[n][y+3][x+4] && this->BO[n][y+4][x+3] && this->BO[n][y+4][x+4] && this->BO[n][y+4][x+5] && this->BO[n][y+5][x+4] && this->BO[n][y+5][x+5] && this->BO[n][y+5][x+6] && this->BO[n][y+6][x+5] && this->BO[n][y+6][x+6] && this->BO[n][y+6][x+7] && this->BO[n][y+7][x+6] && this->BO[n][y+7][x+7])
 		{
 			this->ShowError(cs);
-			*osx = x+8-3;
-			*osy = y+8-3;
-			*odx = x+8+3;
-			*ody = y+8+3;
+			*osx = x+8-RANGEX;
+			*osy = y+8-RANGEY;
+			*odx = x+8+RANGEX;
+			*ody = y+8+RANGEY;
+			this->ClearNum(osx,osy,odx,ody);
 			if (-8 < x && x < 24 && -8 < y && y < 28)
 			{
 				return TRUE;
@@ -775,10 +831,11 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		if (this->BO[n][y+0][x+0] && this->BO[n][y+1][x+0] && this->BO[n][y+2][x+0] && this->BO[n][y+2][x+1] && this->BO[n][y+3][x+1] && this->BO[n][y+4][x+1] && this->BO[n][y+4][x+2] && this->BO[n][y+5][x+2] && this->BO[n][y+6][x+2] && this->BO[n][y+6][x+3] && this->BO[n][y+7][x+3] && this->BO[n][y+8][x+3] && this->BO[n][y+8][x+4] && this->BO[n][y+9][x+4] && this->BO[n][y+10][x+4] && this->BO[n][y+10][x+5] && this->BO[n][y+11][x+5] && this->BO[n][y+12][x+5])
 		{
 			this->ShowError(cs);
-			*osx = x+5-3;
-			*osy = y+12-3;
-			*odx = x+5+3;
-			*ody = y+12+3;
+			*osx = x+5-RANGEX;
+			*osy = y+12-RANGEY;
+			*odx = x+5+RANGEX;
+			*ody = y+12+RANGEY;
+			this->ClearNum(osx,osy,odx,ody);
 			if (-5 < x && x < 27 && -12 < y && x < 24)
 			{
 				return TRUE;
@@ -789,10 +846,11 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		if (this->BO[n][y+0][x+0] && this->BO[n][y+0][x+1] && this->BO[n][y+0][x+2] && this->BO[n][y+1][x+0] && this->BO[n][y+1][x+1] && this->BO[n][y+1][x+2] && this->BO[n][y+2][x+0] && this->BO[n][y+2][x+1] && this->BO[n][y+2][x+2] && this->BO[n][y+3][x+0] && this->BO[n][y+3][x+1] && this->BO[n][y+3][x+2] && this->BO[n][y+4][x+0] && this->BO[n][y+4][x+1] && this->BO[n][y+4][x+2] && this->BO[n][y+5][x+0] && this->BO[n][y+5][x+1] && this->BO[n][y+5][x+2] && this->BO[n][y+6][x+0] && this->BO[n][y+6][x+1] && this->BO[n][y+6][x+2] && this->BO[n][y+7][x+0] && this->BO[n][y+7][x+1] && this->BO[n][y+7][x+2] && this->BO[n][y+8][x+0] && this->BO[n][y+8][x+1] && this->BO[n][y+8][x+2])
 		{
 			this->ShowError(cs);
-			*osx = x+2-3;
-			*osy = y+8-3;
-			*odx = x+2+3;
-			*ody = y+8+3;
+			*osx = x+2-RANGEX;
+			*osy = y+8-RANGEY;
+			*odx = x+2+RANGEX;
+			*ody = y+8+RANGEY;
+			this->ClearNum(osx,osy,odx,ody);
 			if (-2 < x && x < 30 && -8 < y && y < 28)
 			{
 				return TRUE;
@@ -803,10 +861,11 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		if (this->BO[n][y+0][x+0] && this->BO[n][y+1][x+0] && this->BO[n][y+2][x-1] && this->BO[n][y+2][x+0] && this->BO[n][y+3][x-1] && this->BO[n][y+4][x-2] && this->BO[n][y+4][x-1] && this->BO[n][y+5][x-2] && this->BO[n][y+6][x-3] && this->BO[n][y+6][x-2] && this->BO[n][y+7][x-3] && this->BO[n][y+8][x-4] && this->BO[n][y+8][x-3] && this->BO[n][y+9][x-4] && this->BO[n][y+10][x-5] && this->BO[n][y+10][x-4] && this->BO[n][y+11][x-5] && this->BO[n][y+12][x-5])
 		{
 			this->ShowError(cs);
-			*osx = x-5-3;
-			*osy = y+12-3;
-			*odx = x-5+3;
-			*ody = y+12+3;
+			*osx = x-5-RANGEX;
+			*osy = y+12-RANGEY;
+			*odx = x-5+RANGEX;
+			*ody = y+12+RANGEY;
+			this->ClearNum(osx,osy,odx,ody);
 			if (5 < x && x < 37 && -12 < x && x < 24)
 			{
 				return TRUE;
@@ -817,10 +876,11 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		if (this->BO[n][y+0][x-1] && this->BO[n][y+0][x+0] && this->BO[n][y+1][x-2] && this->BO[n][y+1][x-1] && this->BO[n][y+1][x+0] && this->BO[n][y+2][x-3] && this->BO[n][y+2][x-2] && this->BO[n][y+2][x-1] && this->BO[n][y+3][x-4] && this->BO[n][y+3][x-3] && this->BO[n][y+3][x-2] && this->BO[n][y+4][x-5] && this->BO[n][y+4][x-4] && this->BO[n][y+4][x-3] && this->BO[n][y+5][x-6] && this->BO[n][y+5][x-5] && this->BO[n][y+5][x-4] && this->BO[n][y+6][x-7] && this->BO[n][y+6][x-6] && this->BO[n][y+6][x-5] && this->BO[n][y+7][x-7] && this->BO[n][y+7][x-6])
 		{
 			this->ShowError(cs);
-			*osx = x-8-3;
-			*osy = y+8-3;
-			*odx = x-8+3;
-			*ody = y+8+3;
+			*osx = x-8-RANGEX;
+			*osy = y+8-RANGEY;
+			*odx = x-8+RANGEX;
+			*ody = y+8+RANGEY;
+			this->ClearNum(osx,osy,odx,ody);
 			if (8 < x && x < 40 && -8 < y && y < 28)
 			{
 				return TRUE;
@@ -831,10 +891,11 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		if (this->BO[n][y+0][x-2] && this->BO[n][y+0][x-1] && this->BO[n][y+0][x+0] && this->BO[n][y+1][x-4] && this->BO[n][y+1][x-3] && this->BO[n][y+1][x-2] && this->BO[n][y+2][x-6] && this->BO[n][y+2][x-5] && this->BO[n][y+2][x-4] && this->BO[n][y+3][x-8] && this->BO[n][y+3][x-7] && this->BO[n][y+3][x-6] && this->BO[n][y+4][x-10] && this->BO[n][y+4][x-9] && this->BO[n][y+4][x-8] && this->BO[n][y+5][x-12] && this->BO[n][y+5][x-11] && this->BO[n][y+5][x-10])
 		{
 			this->ShowError(cs);
-			*osx = x-12-3;
-			*osy = y+5-3;
-			*odx = x-12+3;
-			*ody = y+5+3;
+			*osx = x-12-RANGEX;
+			*osy = y+5-RANGEY;
+			*odx = x-12+RANGEX;
+			*ody = y+5+RANGEY;
+			this->ClearNum(osx,osy,odx,ody);
 			if (12 < x && x < 44 && -5 < y && y < 31)
 			{
 				return TRUE;
@@ -845,10 +906,11 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		if (this->BO[n][y+0][x-8] && this->BO[n][y+0][x-7] && this->BO[n][y+0][x-6] && this->BO[n][y+0][x-5] && this->BO[n][y+0][x-4] && this->BO[n][y+0][x-3] && this->BO[n][y+0][x-2] && this->BO[n][y+0][x-1] && this->BO[n][y+0][x+0] && this->BO[n][y+1][x-8] && this->BO[n][y+1][x-7] && this->BO[n][y+1][x-6] && this->BO[n][y+1][x-5] && this->BO[n][y+1][x-4] && this->BO[n][y+1][x-3] && this->BO[n][y+1][x-2] && this->BO[n][y+1][x-1] && this->BO[n][y+1][x+0] && this->BO[n][y+2][x-8] && this->BO[n][y+2][x-7] && this->BO[n][y+2][x-6] && this->BO[n][y+2][x-5] && this->BO[n][y+2][x-4] && this->BO[n][y+2][x-3] && this->BO[n][y+2][x-2] && this->BO[n][y+2][x-1] && this->BO[n][y+2][x+0])
 		{
 			this->ShowError(cs);
-			*osx = x-8-3;
-			*osy = y+2-3;
-			*odx = x-8+3;
-			*ody = y+2+3;
+			*osx = x-8-RANGEX;
+			*osy = y+2-RANGEY;
+			*odx = x-8+RANGEX;
+			*ody = y+2+RANGEY;
+			this->ClearNum(osx,osy,odx,ody);
 			if (8 < x && x < 40 && -2 < y && y< 34)
 			{
 				return TRUE;
@@ -859,10 +921,11 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		if (this->BO[n][y-5][x-12] && this->BO[n][y-5][x-11] && this->BO[n][y-5][x-10] && this->BO[n][y-4][x-10] && this->BO[n][y-4][x-9] && this->BO[n][y-4][x-8] && this->BO[n][y-3][x-8] && this->BO[n][y-3][x-7] && this->BO[n][y-3][x-6] && this->BO[n][y-2][x-6] && this->BO[n][y-2][x-5] && this->BO[n][y-2][x-4] && this->BO[n][y-1][x-4] && this->BO[n][y-1][x-3] && this->BO[n][y-1][x-2] && this->BO[n][y+0][x-2] && this->BO[n][y+0][x-1] && this->BO[n][y+0][x+0])
 		{
 			this->ShowError(cs);
-			*osx = x-12-3;
-			*osy = y-5-3;
-			*odx = x-12+3;
-			*ody = y-5+3;
+			*osx = x-12-RANGEX;
+			*osy = y-5-RANGEY;
+			*odx = x-12+RANGEX;
+			*ody = y-5+RANGEY;
+			this->ClearNum(osx,osy,odx,ody);
 			if (12 < x && x < 44 && 5 < y && y < 41)
 			{
 				return TRUE;
@@ -873,10 +936,11 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		if (this->BO[n][y-7][x-7] && this->BO[n][y-7][x-6] && this->BO[n][y-6][x-7] && this->BO[n][y-6][x-6] && this->BO[n][y-6][x-5] && this->BO[n][y-5][x-6] && this->BO[n][y-5][x-5] && this->BO[n][y-5][x-4] && this->BO[n][y-4][x-5] && this->BO[n][y-4][x-4] && this->BO[n][y-4][x-3] && this->BO[n][y-3][x-4] && this->BO[n][y-3][x-3] && this->BO[n][y-3][x-2] && this->BO[n][y-2][x-3] && this->BO[n][y-2][x-2] && this->BO[n][y-2][x-1] && this->BO[n][y-1][x-2] && this->BO[n][y-1][x-1] && this->BO[n][y-1][x+0] && this->BO[n][y+0][x-1] && this->BO[n][y+0][x+0])
 		{
 			this->ShowError(cs);
-			*osx = x-8-3;
-			*osy = y-8-3;
-			*odx = x-8+3;
-			*ody = y-8+3;
+			*osx = x-8-RANGEX;
+			*osy = y-8-RANGEY;
+			*odx = x-8+RANGEX;
+			*ody = y-8+RANGEY;
+			this->ClearNum(osx,osy,odx,ody);
 			if (8 < x && x < 40 && 8 < y && y < 44)
 			{
 				return TRUE;
@@ -887,10 +951,11 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		if (this->BO[n][y-12][x-5] && this->BO[n][y-11][x-5] && this->BO[n][y-10][x-5] && this->BO[n][y-10][x-4] && this->BO[n][y-9][x-4] && this->BO[n][y-8][x-4] && this->BO[n][y-8][x-3] && this->BO[n][y-7][x-3] && this->BO[n][y-6][x-3] && this->BO[n][y-6][x-2] && this->BO[n][y-5][x-2] && this->BO[n][y-4][x-2] && this->BO[n][y-4][x-1] && this->BO[n][y-3][x-1] && this->BO[n][y-2][x-1] && this->BO[n][y-2][x+0] && this->BO[n][y-1][x+0] && this->BO[n][y+0][x+0])
 		{
 			this->ShowError(cs);
-			*osx = x-5-3;
-			*osy = y-12-3;
-			*odx = x-5+3;
-			*ody = y-12+3;
+			*osx = x-5-RANGEX;
+			*osy = y-12-RANGEY;
+			*odx = x-5+RANGEX;
+			*ody = y-12+RANGEY;
+			this->ClearNum(osx,osy,odx,ody);
 			if (5 < x && x < 37 && 12 < y && y < 48)
 			{
 				return TRUE;
@@ -940,4 +1005,24 @@ sprintf(str,"%d",n);
 
 	AfxMessageBox(str);
 	return TRUE;
+}
+
+void DealPic::ClearNum(int *osx,int *osy,int *odx,int *ody)
+{
+	this->InMiddle(0,31,osx);
+	this->InMiddle(0,35,osy);
+	this->InMiddle(0,31,odx);
+	this->InMiddle(0,35,ody);
+}
+
+void DealPic::InMiddle(int min,int max,int *Num)
+{
+	if (*Num > max)
+	{
+		*Num = max;
+	}
+	if (*Num < min)
+	{
+		*Num = min;
+	}
 }
