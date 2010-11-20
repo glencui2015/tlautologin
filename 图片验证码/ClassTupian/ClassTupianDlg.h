@@ -10,7 +10,6 @@
 
 /////////////////////////////////////////////////////////////////////////////
 // CClassTupianDlg dialog
-
 class CClassTupianDlg : public CDialog
 {
 // Construction
@@ -20,6 +19,7 @@ public:
 // Dialog Data
 	//{{AFX_DATA(CClassTupianDlg)
 	enum { IDD = IDD_CLASSTUPIAN_DIALOG };
+	CEdit	m_Pointlist;
 	CString	m_edit;
 	//}}AFX_DATA
 

@@ -11,6 +11,9 @@
 typedef struct Gestures
 {
 	int iGestures;
+	int x;
+	int y;
+	int Gesture;
 	Gestures *pnext;
 };
 class DealPic  
@@ -39,9 +42,12 @@ public:
 	BOOL DealNum(); // 对图片阵列进行处理 将结果放到NUMBER里面
 	BOOL DealFirst();
 	int  DealOne(int n);   //对一个进行初步处理的数字阵列进行 判断 将结果返回
-	BOOL IsLine(int n, int iclock, IN int x,IN int y);
-	BOOL InZoneRich(int n,int iclock,int sx,int sy,int dx,int dy,OUT int *osx,OUT int *osy, OUT int *odx,OUT int *ody);
+	BOOL IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *osy,OUT int *odx,OUT int *ody);
 	BOOL InReaturn(int n, Gestures *G,int Tilt,int sx,int sy,int dx,int dy);//No 表示第几个比划 Gesture 表示比划的方向 Tilt 表示当前斜率既 -1 表示左倾斜，0 表示正常 1 表示有倾斜
+	BOOL InReaturnOver(int n,Gestures *G,int sx,int sy,int dx,int dy);
+	BOOL ShowError(char *cs);
+	BOOL ShowError(CString cs);
+	BOOL ShowGesturePath(int n, Gestures *G);
 };
 
 #endif // !defined(AFX_DEALPIC_H__D4520936_3823_411E_B86F_CCDC9639B760__INCLUDED_)
