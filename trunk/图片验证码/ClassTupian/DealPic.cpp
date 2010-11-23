@@ -32,8 +32,8 @@ static char THIS_FILE[]=__FILE__;
 #define  CLOCK14 14
 #define  CLOCK15 15
 
-#define  RANGEX   2
-#define  RANGEY   2
+#define  RANGEX   1
+#define  RANGEY   1
 //#define  DEBUG
 
 
@@ -64,6 +64,24 @@ BOOL DealPic::LoadBin(char *pDate)
 	int y = 0;
 	int k = 0;
 	int ret = 0;
+	int n = 0;
+	x = y = n = 0;
+	while (n < 4)
+	{
+		while (y < 36)
+		{
+			while (x < 32)
+			{
+				this->BO[n][y][x] = FALSE;
+				x++;
+			}
+			x = 0;
+			y++;
+		}
+		x = y = 0;
+		n++;
+	}
+	x = y = 0;
 	while (i < dLen)
 	{
 		a = 128;
@@ -77,16 +95,44 @@ BOOL DealPic::LoadBin(char *pDate)
 				switch (ret)
 				{
 				case 0:
-					this->BO[0][y][x%32] = !(a&c);
+					if (!(a&c))
+					{
+						this->BO[0][y][x%32] = TRUE;
+					}
+					else
+					{
+						this->BO[0][y][x%32] = FALSE;
+					}
 					break;
 				case 1:
-					this->BO[1][y][x%32] = !(a&c);
+					if (!(a&c))
+					{
+						this->BO[1][y][x%32] = TRUE;
+					}
+					else
+					{
+						this->BO[1][y][x%32] = FALSE;
+					}
 					break;
 				case 2:
-					this->BO[2][y][x%32] = !(a&c);
+					if (!(a&c))
+					{
+						this->BO[2][y][x%32] = TRUE;
+					}
+					else
+					{
+						this->BO[2][y][x%32] = FALSE;
+					}
 					break;
 				case 3:
-					this->BO[3][y][x%32] = !(a&c);
+					if (!(a&c))
+					{
+						this->BO[3][y][x%32] = TRUE;
+					}
+					else
+					{
+						this->BO[3][y][x%32] = FALSE;
+					}
 					break;
 				default:
 					break;
@@ -138,7 +184,7 @@ BOOL DealPic::ShowNum(int n, HWND hWnd)
 BOOL DealPic::DealNum()
 {
 	this->DealFirst();
-	this->DealOne(3);
+	this->DealOne(2);
 	return true;
 }
 //////////////////////////////////////////////////////////////////////////
@@ -192,6 +238,22 @@ BOOL DealPic::DealFirst()
 		x = y = 0;
 		n++;
 	}	
+	x = y = n = 0;//把tmp清零
+	while (n < 4)
+	{
+		while (y < 36)
+		{
+			while (x < 32)
+			{
+				this->TMP[n][y][x] = FALSE;
+				x++;
+			}
+			x = 0;
+			y++;
+		}
+		x = y = 0;
+		n++;
+	}
 	//下面是去掉数字内部的干扰点  把一些指定的点 进行去除
 		x = y = n = 0;
 
@@ -597,11 +659,61 @@ BOOL DealPic::IsOne(int n)
 
 BOOL DealPic::IsTwo(int n)
 {
+	int osx = 8;
+	int osy = 0;
+	int odx = 23;
+	int ody = 17;
+	
+	Gestures G[10] = {0};
+	G[0].iGestures = 4;
+	G[0].pnext = &G[1];
+	G[1].iGestures = 8;
+	G[1].pnext = &G[2];
+	G[2].iGestures = 12;
+	G[2].pnext = &G[3];
+	G[3].iGestures = 8;
+	G[3].pnext = &G[4];
+	G[4].iGestures = 4;
+	G[4].pnext = NULL;
+	
+	
+	
+	if (this->InReaturnOver(n,G,osx,osy,odx,ody))
+	{
+		this->ShowGesturePath(2, &G[0]);
+		return TRUE;
+	}
 	return FALSE;
 }
 
 BOOL DealPic::IsThree(int n)
 {
+	int osx = 0;
+	int osy = 0;
+	int odx = 23;
+	int ody = 17;
+	
+	Gestures G[10] = {0};
+	G[0].iGestures = 2;
+	G[0].pnext = &G[1];
+	G[1].iGestures = 6;
+	G[1].pnext = &G[2];
+	G[2].iGestures = 10;
+	G[2].pnext = &G[3];
+	G[3].iGestures = 6;
+	G[3].pnext = &G[4];
+	G[4].iGestures = 10;
+	G[4].pnext = &G[5];
+	G[5].iGestures = 14;
+	G[5].pnext = NULL;
+	
+	
+	
+	if (this->InReaturnOver(n,G,osx,osy,odx,ody))
+	{
+		this->ShowGesturePath(3, &G[0]);
+		return TRUE;
+	}
 	return FALSE;
 }
 
@@ -627,7 +739,9 @@ BOOL DealPic::IsFive(int n)
 	G[3].iGestures = 8;
 	G[3].pnext = &G[4];
 	G[4].iGestures = 12;
-	G[4].pnext = NULL;
+	G[4].pnext = &G[5];
+	G[5].iGestures = 11;
+	G[5].pnext == NULL;
 	
 	if (this->InReaturnOver(n,G,osx,osy,odx,ody))
 	{
@@ -757,7 +871,7 @@ BOOL DealPic::IsLine(int n, int iclock, IN int x,IN int y,OUT int *osx,OUT int *
 		{
 			this->ShowError(cs);
 			*osx = x+8-RANGEX;
-			*osy = x-8-RANGEY;
+			*osy = y-8-RANGEY;
 			*odx = x+8+RANGEX;
 			*ody = y-8+RANGEY;
 			this->ClearNum(osx,osy,odx,ody);
