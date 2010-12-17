@@ -1,4 +1,4 @@
-// WGClientDlg.cpp : implementation file
+ // WGClientDlg.cpp : implementation file
 //
 
 #include "stdafx.h"

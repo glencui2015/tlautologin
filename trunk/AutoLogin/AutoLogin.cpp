@@ -1,4 +1,4 @@
-// AutoLogin.cpp : Defines the entry point for the DLL application.
+ // AutoLogin.cpp : Defines the entry point for the DLL application.
 //
 //取当前地址的 规则： db [[76317c]+3a38]+68
 #include "stdafx.h"

@@ -6,18 +6,18 @@
 --------------------Configuration: WGClient - Win32 Release--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP24A.tmp" with contents
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5B.tmp" with contents
 [
 /nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Release/" /Fp"Release/WGClient.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
-"E:\天龙外挂\WGClient\WGClientDlg.cpp"
+"d:\我的文档\桌面\tlautologin\trunk\WGClient\WGClientDlg.cpp"
 ]
-Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP24A.tmp" 
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5B.tmp" 
 Creating command line "link.exe /nologo /subsystem:windows /incremental:no /pdb:"Release/WGClient.pdb" /machine:I386 /out:"Release/WGClient.exe"  ".\Release\StdAfx.obj" ".\Release\WGClient.obj" ".\Release\WGClientDlg.obj" ".\Release\WGClient.res" "
 <h3>Output Window</h3>
 Compiling...
 WGClientDlg.cpp
-E:\天龙外挂\WGClient\WGClientDlg.cpp(154) : warning C4101: 'pathName' : unreferenced local variable
-E:\天龙外挂\WGClient\WGClientDlg.cpp(153) : warning C4101: 'exeName' : unreferenced local variable
+d:\我的文档\桌面\tlautologin\trunk\WGClient\WGClientDlg.cpp(154) : warning C4101: 'pathName' : unreferenced local variable
+d:\我的文档\桌面\tlautologin\trunk\WGClient\WGClientDlg.cpp(153) : warning C4101: 'exeName' : unreferenced local variable
 Linking...
 Creating command line "bscmake.exe /nologo /o"Release/WGClient.bsc"  ".\Release\StdAfx.sbr" ".\Release\WGClient.sbr" ".\Release\WGClientDlg.sbr""
 Creating browse info file...
